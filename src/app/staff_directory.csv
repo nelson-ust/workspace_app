@@ -1,0 +1,246 @@
+NAME,SURNAME,Phone Number,Department,Unit,Staff ID,Email Address,Address,State of Origin,LGA of Origin,Date of Birth,Position,Tenancy,Password,Roles,gender
+Dr. Charles,Okolie,7062074738,3,8,CCFN/2024/001,cokolie@ccfng.org,Beside Unique Life Hotels,Abia,Umuahia,01/04/1985,7,1,Admin123,3,Male
+Dr. Donatus,Nnadi,8034000217,3,8,CCFN/2024/002,DNnadi@ccfng.org,Marculey Street Off Azikiwe Str,Anambra,Aguata,02/04/1985,9,1,Admin123,"5, 6, 9, 10, 11",Male
+Eucharia,Nwafor,8037091786,3,8,CCFN/2024/003,enwofor@ccfmg.org,Along Timber Road,Imo,Orlu,03/04/1985,10,1,Admin123,"6, 11",Female
+Orjiugo Uchechi,Oparah,8035954650,3,8,CCFN/2024/004,ooparah@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Ebonyi,Abakaliki,04/04/1985,12,1,Admin123,"6, 11",Female
+Obal,Ofem,7065797566,3,8,CCFN/2024/005,oofem@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Enugu,Enugu North,05/04/1985,12,1,Admin123,"6, 11",Female
+Sylvia,Nwobodo,8063962933,3,8,CCFN/2024/006,Snwobodo@ccfng.org,Beside Christ Apostolic Church Afara,Abia,Osisioma,06/04/1985,13,1,Admin123,"6, 11",Female
+Jacinta,Okwor,8162856466,3,8,CCFN/2024/007,Jokwor@ccfng.org,Along Panyu Life Hotels,Enugu,Enugu South,07/04/1985,13,1,Admin123,"6, 11",Female
+Ifeanyichukwu,Eloka,7037205802,3,8,CCFN/2024/008,Ieloka@ccfng.org,Close to Christ Apostolic Church Emene,Imo,Owerri North,08/04/1985,13,1,Admin123,"6, 11",Male
+Emmanuella,Ugwuta,7031023379,3,8,CCFN/2024/009,Eugwuta@ccfng.org,Timbers Avenue New Owerri,Anambra,Orumba South,09/04/1985,13,1,Admin123,"6, 11",Female
+Dr. Chukwuemeka C.,Amuta,8060103930,4,9,CCFN/2024/010,Camuta@ccfng.org,Along All Season Hotel,Ebonyi,Ezza North,10/04/1985,8,1,Admin123,"4, 9, 10, 11",Male
+Dr. Mordi,Roland,8130334318,4,9,CCFN/2024/011,mroland@ccfng.org,Beside Primary School,Abia,Umuahia,11/04/1985,9,1,Admin123,11,Male
+Dr. Olaniyi,Afolabi,8035723699,4,9,CCFN/2024/012,oafolabi@ccfng.org,Along Besala Road,Anambra,Aguata,12/04/1985,9,1,Admin123,11,Male
+Dr. Uchechukwu,Amadi,8133211959,4,9,CCFN/2024/013,uamadi@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Imo,Orlu,13/04/1985,10,1,Admin123,11,Male
+Dr. Jonas,Okwoli,7067148766,4,9,CCFN/2024/014,Jokwoli@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Ebonyi,Abakaliki,14/04/1985,12,1,Admin123,11,Male
+Dr. Chika,Maduka,8033236263,4,9,CCFN/2024/015,cmaduka@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Enugu,Enugu North,15/04/1985,12,1,Admin123,11,Female
+Dr. Adaeze,Emehel,8034553672,4,9,CCFN/2024/016,AEmehel@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Abia,Osisioma,16/04/1985,12,1,Admin123,11,Female
+Gabriel Omen,Obokon,7030288689,9,14,CCFN/2024/018,gobokon@ccfng.org,Beside Unique Life Hotels,Enugu,Enugu South,17/04/1985,10,1,Admin123,"9, 10, 11",Male
+Ikenna Nwakanma,Nwakama,8066199289,9,14,CCFN/2024/020,inwakamma@ccfng.org,Along Timber Road,Anambra,Orumba South,19/04/1985,10,1,Admin123,11,Male
+Franklin Enwerem,Enwerem,8081062031,9,14,CCFN/2024/021,fenwerem@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Ebonyi,Ezza North,20/04/1985,12,1,Admin123,11,Male
+Precious,Edoja,7032846091,9,14,CCFN/2024/022,redoja@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Abia,Umuahia,21/04/1985,12,1,Admin123,11,Female
+Godswill Emeka,Ukpabi,7030314813,9,14,CCFN/2024/023,eukpabi@ccfng.org,Beside Christ Apostolic Church Afara,Anambra,Aguata,22/04/1985,12,1,Admin123,11,Male
+Ekeh Sandra,Chinwe,7060933208,9,14,CCFN/2024/024,sekeh@ccfng.org,Along Panyu Life Hotels,Imo,Orlu,23/04/1985,12,1,Admin123,11,Female
+Amara,Nzeako,8065621514,6,11,CCFN/2024/025,anzeako@ccfng.org,Close to Christ Apostolic Church Emene,Ebonyi,Abakaliki,24/04/1985,9,1,Admin123,"9, 10, 11",Male
+Amagah John,Cletus,8061241175,6,11,CCFN/2024/026,jamgah@ccfng.org,Timbers Avenue New Owerri,Enugu,Enugu North,25/04/1985,10,1,Admin123,11,Male
+Amara Salome,Chukwuagozie,8160761730,6,11,CCFN/2024/027,achukwuagozie@ccfng.org,Along All Season Hotel,Abia,Osisioma,26/04/1985,12,1,Admin123,11,Female
+Gerald Nnamadi,Ottih,7067652724,6,11,CCFN/2024/028,Gottih@ccfng.org,Beside Primary School,Enugu,Enugu South,27/04/1985,12,1,Admin123,11,Male
+Onokevbagbe,Edewede,8064003761,7,12,CCFN/2024/029,eonokevbagbe@ccfng.org,Along Besala Road,Imo,Owerri North,28/04/1985,9,1,Admin123,"9, 10, 11",Male
+Clement,Okeke,8035535268,7,12,CCFN/2024/030,cokeke@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Anambra,Orumba South,29/04/1985,10,1,Admin123,11,Male
+Caleb Ikenna,Okafor,9033353998,7,12,CCFN/2024/031,iokafor@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Ebonyi,Ezza North,30/04/1985,12,1,Admin123,11,Male
+John Atangecho,Shu,8036060825,7,12,CCFN/2024/032,satangcho@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Abia,Umuahia,01/05/1985,12,1,Admin123,11,Male
+Uparegh Imoter,Mbessey,8066007378,1,3,CCFN/2024/033,iuparegh@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Anambra,Aguata,02/05/1985,8,1,Admin123,"9, 10, 11",Male
+Mark,Onoja,7034848778,1,3,CCFN/2024/035,monoja@ccfng.org,Marculey Street Off Azikiwe Str,Ebonyi,Abakaliki,04/05/1985,10,1,Admin123,11,Male
+Princess,Okorie,8063528937,1,3,CCFN/2024/036,pokorie@ccfng.org,Along Timber Road,Enugu,Enugu North,05/05/1985,12,1,Admin123,11,Female
+Terfa Theophilus,Timbir,7031894501,1,3,CCFN/2024/038,ttimbir@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Enugu,Enugu South,07/05/1985,12,1,Admin123,11,Male
+Ginika,Obialor,8165806961,1,3,CCFN/2024/039,gobialor@ccfng.org,Beside Christ Apostolic Church Afara,Imo,Owerri North,08/05/1985,12,1,Admin123,11,Female
+Olusayo,Adeleke,7061339560,1,3,CCFN/2024/040,oadeleke@ccfng.org,Along Panyu Life Hotels,Anambra,Orumba South,09/05/1985,12,1,Admin123,11,Female
+Nelson,Attah,7037176436,1,1,CCFN/2024/041,nattah@ccfng.org,Close to Christ Apostolic Church Emene,Ebonyi,Ezza North,10/05/1985,9,1,Admin123,"1, 2, 9, 11",Male
+Thelma,Abba,8136062554,1,1,CCFN/2024/042,tabba@ccfng.org,Timbers Avenue New Owerri,Abia,Umuahia,11/05/1985,10,1,Admin123,11,Female
+Samuel,Uzochukwu,7039338791,1,1,CCFN/2024/044,suzochukwu@ccfng.org,Beside Primary School,Imo,Orlu,13/05/1985,12,1,Admin123,11,Male
+Evidence,Onyebuchi,7038998478,1,1,CCFN/2024/045,eonyebuchi@ccfng.org,Along Besala Road,Ebonyi,Abakaliki,14/05/1985,12,1,Admin123,11,Male
+Onyedikachi,Ezeobi,8104807107,1,1,CCFN/2024/046,Ocallistus@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Enugu,Enugu North,15/05/1985,13,1,Admin123,"1, 2, 11",Male
+Obiora,Aghadinuno,8065742810,1,1,CCFN/2024/047,OAghadinuno@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Abia,Osisioma,16/05/1985,13,1,Admin123,11,Male
+Shittu Muliq,Ajedolapo,8069620527,1,1,CCFN/2024/048,Mshittu@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Enugu,Enugu South,17/05/1985,13,1,Admin123,11,Male
+Godwin,Mbessey,9038337102,1,1,CCFN/2024/049,Maondohemba@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Imo,Owerri North,18/05/1985,13,1,Admin123,"1, 2, 11",Male
+George,Otu,8087682808,1,1,CCFN/2024/050,aotu@ccfng.org,Beside Unique Life Hotels,Anambra,Orumba South,19/05/1985,13,1,Admin123,11,Male
+Derick,Nwosu,8167477024,1,2,CCFN/2024/051,dnwosu@ccfng.org,Marculey Street Off Azikiwe Str,Ebonyi,Ezza North,20/05/1985,10,1,Admin123,"9, 11",Male
+Eniola,Erubami,8134056652,1,2,CCFN/2024/052,eerubami@ccfng.org,Along Timber Road,Abia,Umuahia,21/05/1985,10,1,Admin123,11,Female
+Queenn,Mbuk,8037379658,1,2,CCFN/2024/053,qmbuk@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Anambra,Aguata,22/05/1985,12,1,Admin123,11,Female
+Linus Onyeka,Ndulue,8060998878,1,2,CCFN/2024/054,ondulue@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Imo,Orlu,23/05/1985,12,1,Admin123,11,Male
+Eyoh Saviour,Offiong,8034898136,1,2,CCFN/2024/055,seyoh@ccfng.org,Beside Christ Apostolic Church Afara,Ebonyi,Abakaliki,24/05/1985,12,1,Admin123,11,Male
+Okon Eyo,Pual,8093203616,2,7,CCFN/2024/056,uokon@ccfng.org,Along Panyu Life Hotels,Enugu,Enugu North,25/05/1985,14,1,Admin123,"11, 13, 14",Male
+Benjaminn,Ikpebe,8166120394,2,7,CCFN/2024/057,bikpebe@ccfng.org,Close to Christ Apostolic Church Emene,Abia,Osisioma,26/05/1985,14,1,Admin123,"13, 11",Male
+Adejo Collins,Achegbulu,7031300537,2,7,CCFN/2024/058,aachegbulu@ccfng.org,Timbers Avenue New Owerri,Enugu,Enugu South,27/05/1985,14,1,Admin123,"13, 11",Male
+Ernest,Ugwu,8030980608,2,7,CCFN/2024/059,eugwu@ccfng.org,Along All Season Hotel,Imo,Owerri North,28/05/1985,14,1,Admin123,"13, 11",Male
+Felix,Eze,8037514264,2,7,CCFN/2024/060,feze@ccfng.org,Beside Primary School,Anambra,Orumba South,29/05/1985,14,1,Admin123,"13, 11",Male
+John,Ejaidu,8066822295,2,7,CCFN/2024/061,jejaidu@ccfng.org,Along Besala Road,Ebonyi,Ezza North,30/05/1985,14,1,Admin123,"13, 11",Male
+Judeee,Abonyi,8035913075,2,7,CCFN/2024/062,jabonyi@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Abia,Umuahia,31/05/1985,14,1,Admin123,"13, 11",Male
+Chidozie,Uzoigwe,7012701680,2,7,CCFN/2024/063,cuzoigwe@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Anambra,Aguata,01/06/1985,14,1,Admin123,"13, 11",Male
+Cajetan,Ochi,7035979428,2,7,CCFN/2024/064,cochi@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Imo,Orlu,02/06/1985,14,1,Admin123,"13, 11",Male
+Williamss,Kwaldet,8030600495,2,7,CCFN/2024/065,wkwaldet@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Ebonyi,Abakaliki,03/06/1985,14,1,Admin123,"13, 11",Male
+Eric Eruke,Assievweneta,7030248586,2,7,CCFN/2024/066,easiuweneta@ccfng.org,Beside Unique Life Hotels,Enugu,Enugu North,04/06/1985,14,1,Admin123,"13, 11",Male
+Isah,Uchogwu,7037696624,2,7,CCFN/2024/067,isahuchogwu@gmail.com,Marculey Street Off Azikiwe Str,Abia,Osisioma,05/06/1985,14,1,Admin123,"13, 11",Male
+Everistus,Aneke,8038907527,8,13,CCFN/2024/068,eaneke@ccfng.org,Along Timber Road,Enugu,Enugu South,06/06/1985,9,1,Admin123,"9, 10, 11",Male
+Nkemakolam Maria Florence,Okeke,8064642120,8,13,CCFN/2024/069,nokeke@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Imo,Owerri North,07/06/1985,10,1,Admin123,11,Female
+Sandra Chinwe,Emegasim,8136999863,8,13,CCFN/2024/070,Cemegasim@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Anambra,Orumba South,08/06/1985,12,1,Admin123,11,Female
+Uzochukwu Leonard,Onyewuchi,8034827889,8,13,CCFN/2024/071,uonyewuchi@ccfng.org,Beside Christ Apostolic Church Afara,Ebonyi,Ezza North,09/06/1985,12,1,Admin123,11,Male
+Naomi Chinyere,Thompson,8060909475,8,13,CCFN/2024/072,nthompson@ccfng.org,Along Panyu Life Hotels,Abia,Umuahia,10/06/1985,12,1,Admin123,11,Female
+Johnson Nnabuchi,Ezea,8030919233,10,15,CCFN/2024/074,jezea@ccfng.org,Timbers Avenue New Owerri,Imo,Orlu,12/06/1985,13,1,Admin123,"9, 11",Male
+Kingsleyy,Ugwadike,8069838915,2,4,CCFN/2024/077,Kugwadike@ccfng.org,Along Besala Road,Abia,Osisioma,15/06/1985,12,1,Admin123,"7, 8, 9, 10, 11",Male
+Agim Francis,Anguel,8080338795,2,4,CCFN/2024/078,Fagim@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Enugu,Enugu South,16/06/1985,13,1,Admin123,"7, 11",Male
+Gabriel,Ogunlade,8030704504,2,6,CCFN/2024/079,gogunlade@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Imo,Owerri North,17/06/1985,13,1,Admin123,"7, 11",Male
+Gift,Azuka,8060106667,2,4,CCFN/2024/080,gazuka@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Anambra,Orumba South,18/06/1985,13,1,Admin123,"7, 11",Female
+Chinonso Jude,Egwuonwu,7032116933,2,5,CCFN/2024/081,echinonso@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Ebonyi,Ezza North,19/06/1985,13,1,Admin123,"7, 11",Male
+Abiodun,Onifade,8036442070,5,10,CCFN/2024/082,aonifade@ccfng.org,Beside Unique Life Hotels,Abia,Umuahia,20/06/1985,9,1,Admin123,"9, 10, 11",Male
+Kenneth,Johnson,8063528803,5,10,CCFN/2024/083,kjohnson@ccfng.org,Marculey Street Off Azikiwe Str,Anambra,Aguata,21/06/1985,10,1,Admin123,11,Male
+Benson,Amodu,7068119367,5,10,CCFN/2024/084,abenson@ccfng.org,Along Timber Road,Imo,Orlu,22/06/1985,10,1,Admin123,11,Male
+Adetutu,Rufai,8026602642,5,10,CCFN/2024/085,arufai@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Ebonyi,Abakaliki,23/06/1985,12,1,Admin123,11,Female
+Vincent,Ntui,8130439520,5,11,CCFN/2024/086,Vtui@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Enugu,Enugu North,24/06/1985,12,1,Admin123,"9, 11",Male
+Sunday Osmund,Ishiwu,8039673204,5,11,CCFN/2024/087,sishiwu@yahoo.com,Beside Christ Apostolic Church Afara,Abia,Osisioma,25/06/1985,13,1,Admin123,11,Male
+Goodness Awa,Ibem,8066722231,5,10,CCFN/2024/088,Gibem@ccfng.org,Along Panyu Life Hotels,Enugu,Enugu South,26/06/1985,13,1,Admin123,11,Female
+ALHASSAN,Danjuma,8066722232,1,1,CCFN/2024/089,ADanjuma@ccfng.org,Beside Unique Life Hotels,Abia,Umuahia,27/06/1985,10,3,Admin123,"2, 9, 11",Male
+David,Aggrey,8066722233,1,1,CCFN/2024/090,DAggrey@ccfng.org,Marculey Street Off Azikiwe Str,Anambra,Aguata,28/06/1985,12,3,Admin123,11,Male
+Adeyemi,Adegoke,8066722234,1,1,CCFN/2024/091,AAdegoke@ccfng.org,Along Timber Road,Imo,Orlu,29/06/1985,12,3,Admin123,11,Male
+Ezike,Chidimma,8066722235,1,1,CCFN/2024/092,EChidimma@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Ebonyi,Abakaliki,30/06/1985,13,3,Admin123,11,Female
+OZIYI,MATHEW,8066722236,1,1,CCFN/2024/093,OMATHEW@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Enugu,Enugu North,01/07/1985,13,3,Admin123,11,Male
+Sandra,Esin,8066722237,1,2,CCFN/2024/094,SEsin@ccfng.org,Beside Christ Apostolic Church Afara,Abia,Osisioma,02/07/1985,9,3,Admin123,"9, 11",Female
+Nwoke,Providence,8066722238,1,2,CCFN/2024/095,NProvidence@ccfng.org,Along Panyu Life Hotels,Enugu,Enugu South,03/07/1985,10,3,Admin123,11,Male
+Franklin,Ifejika,8066722239,1,2,CCFN/2024/096,FIfejika@ccfng.org,Close to Christ Apostolic Church Emene,Imo,Owerri North,04/07/1985,10,3,Admin123,11,Male
+Nsongurua,Daniel,8066722240,1,2,CCFN/2024/097,NDaniel@ccfng.org,Timbers Avenue New Owerri,Anambra,Orumba South,05/07/1985,12,3,Admin123,11,Female
+Orakwe,Somto,8066722241,1,2,CCFN/2024/098,OSomto@ccfng.org,Along All Season Hotel,Ebonyi,Ezza North,06/07/1985,12,3,Admin123,11,Male
+Anthony,Ajufoh,8066722242,1,2,CCFN/2024/099,AAjufoh@ccfng.org,Beside Primary School,Abia,Umuahia,07/07/1985,13,3,Admin123,11,Male
+Amedu,Alapa,8066722243,1,3,CCFN/2024/100,AAlapa@ccfng.org,Along Besala Road,Anambra,Aguata,08/07/1985,10,3,Admin123,11,Female
+Jamesss,Obi,8066722244,1,3,CCFN/2024/101,JObi@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Imo,Orlu,09/07/1985,12,3,Admin123,11,Male
+Kehinde,Ajana,8066722245,1,3,CCFN/2024/102,KAjana@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Ebonyi,Abakaliki,10/07/1985,12,3,Admin123,11,Male
+Izims,Chimezie,8066722246,1,3,CCFN/2024/103,IChimezie@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Abia,Enugu North,11/07/1985,12,3,Admin123,11,Male
+Helix,Green,8066722247,1,3,CCFN/2024/104,HGreen@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Anambra,Osisioma,12/07/1985,10,3,Admin123,11,Female
+Ukachi,Samuel,8066722248,1,3,CCFN/2024/105,USamuel@ccfng.org,Beside Unique Life Hotels,Imo,Enugu South,13/07/1985,9,3,Admin123,"9, 10, 11",Male
+Yetunde,Adebimpe,8066722249,1,3,CCFN/2024/106,YAdebimpe@ccfng.org,Along Timber Road,Ebonyi,Orumba South,14/07/1985,12,3,Admin123,11,Female
+Catherine,Doomaren,8066722250,1,3,CCFN/2024/107,CDoomaren@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Enugu,Ezza North,15/07/1985,12,3,Admin123,11,Male
+Mbaezue,Donald,8066722251,1,3,CCFN/2024/108,MDonald@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Abia,Umuahia,16/07/1985,14,3,Admin123,11,Male
+Johnn,Idoko,8066722252,2,4,CCFN/2024/109,JIdoko@ccfng.org,Beside Christ Apostolic Church Afara,Enugu,Aguata,17/07/1985,10,3,Admin123,"7, 8, 9, 10, 11",Female
+Ogbodo,Ikechukwu,8066722253,2,4,CCFN/2024/110,OIkechukwu@ccfng.org,Along Panyu Life Hotels,Imo,Orlu,18/07/1985,14,3,Admin123,"7, 11",Male
+Obodoechina,Chiwnema,8066722254,2,5,CCFN/2024/111,OChiwnema@ccfng.org,Close to Christ Apostolic Church Emene,Anambra,Abakaliki,19/07/1985,13,3,Admin123,"7, 11",Male
+Ekwe,Paul,8066722255,2,6,CCFN/2024/112,EPaul@ccfng.org,Timbers Avenue New Owerri,Ebonyi,Enugu North,20/07/1985,14,3,Admin123,"7, 11",Female
+Godwinn,Anyanwu,8066722256,2,7,CCFN/2024/113,GAnyanwu@ccfng.org,Along All Season Hotel,Abia,Osisioma,21/07/1985,14,3,Admin123,"11, 13, 14",Male
+Yariok,Stephen,8066722257,2,7,CCFN/2024/114,YStephen@ccfng.org,Beside Primary School,Anambra,Enugu South,22/07/1985,14,3,Admin123,"13, 11",Male
+Fabiann,Ikeh,8066722258,2,7,CCFN/2024/115,FIkeh@ccfng.org,Along Besala Road,Imo,Owerri North,23/07/1985,14,3,Admin123,"13, 11",Male
+Ogwuche,Simon,8066722259,2,7,CCFN/2024/116,OSimon@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Ebonyi,Orumba South,24/07/1985,14,3,Admin123,"13, 11",Female
+Ekpenyong,Offiong,8066722260,2,7,CCFN/2024/117,EOffiong@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Enugu,Ezza North,25/07/1985,14,3,Admin123,"13, 11",Male
+Onyemuche,Anthony,8066722261,2,7,CCFN/2024/118,OAnthony@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Abia,Umuahia,26/07/1985,14,3,Admin123,"13, 11",Female
+Ogazi,Chima,8066722262,2,7,CCFN/2024/119,OChima@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Enugu,Aguata,27/07/1985,14,3,Admin123,"13, 11",Male
+Muyiwa,Adesina,8066722263,2,7,CCFN/2024/120,MAdesina@ccfng.org,Beside Unique Life Hotels,Anambra,Abakaliki,28/07/1985,14,3,Admin123,"13, 11",Male
+Odafe,Cletus,8066722264,2,7,CCFN/2024/121,OCletus@ccfng.org,Marculey Street Off Azikiwe Str,Ebonyi,Enugu North,29/07/1985,14,3,Admin123,"13, 11",Female
+Lawrence,Oniawa,8066722265,2,7,CCFN/2024/122,LOniawa@ccfng.org,Along Timber Road,Abia,Enugu South,30/07/1985,14,3,Admin123,"13, 11",Male
+Ani,Chiwetalu,8066722266,3,8,CCFN/2024/123,AChiwetalu@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Anambra,Owerri North,31/07/1985,8,3,Admin123,"5, 6, 9, 10, 11",Male
+Jonathan,Olarewaju,8066722267,3,8,CCFN/2024/124,JOlarewaju@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Imo,Orumba South,01/08/1985,7,3,Admin123,3,Female
+Fosca,Agbachom,8066722268,3,8,CCFN/2024/125,FAgbachom@ccfng.org,Beside Christ Apostolic Church Afara,Ebonyi,Ezza North,02/08/1985,12,3,Admin123,"6, 11",Male
+Hassan,Sani,8066722269,3,8,CCFN/2024/126,HSani@ccfng.org,Along Panyu Life Hotels,Enugu,Umuahia,03/08/1985,12,3,Admin123,"6, 11",Male
+Dike,Joseph,8066722270,3,8,CCFN/2024/127,DJoseph@ccfng.org,Close to Christ Apostolic Church Emene,Abia,Orlu,04/08/1985,13,3,Admin123,"6, 11",Male
+PATRICIA,ADENIKE,8066722271,3,8,CCFN/2024/128,PADENIKE@ccfng.org,Timbers Avenue New Owerri,Abia,Abakaliki,05/08/1985,13,3,Admin123,"6, 11",Female
+Vincentt,Ronald,8066722272,3,8,CCFN/2024/129,VRonald@ccfng.org,Along All Season Hotel,Anambra,Enugu North,06/08/1985,10,3,Admin123,"6, 11",Male
+Ifeanyii,Onyedikachi,8066722273,3,8,CCFN/2024/130,IOnyedikachi@ccfng.org,Beside Primary School,Imo,Osisioma,07/08/1985,14,3,Admin123,"6, 11",Female
+OTTY,Ngozi,8066722274,4,9,CCFN/2024/131,ONgozi@ccfng.org,Along Besala Road,Ebonyi,Enugu South,08/08/1985,10,3,Admin123,11,Male
+Okebugwu,Andrew,8066722275,4,9,CCFN/2024/132,OAndrew@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Enugu,Owerri North,09/08/1985,8,3,Admin123,"4, 9, 10, 11",Male
+Tseeneke,Justin,8066722276,5,10,CCFN/2024/133,TJustin@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Abia,Orumba South,10/08/1985,9,3,Admin123,"9, 10, 11",Female
+Kingsley,Okereke,8066722277,5,10,CCFN/2024/134,KOkereke@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Enugu,Ezza North,11/08/1985,10,3,Admin123,11,Male
+Adai,PRISCILLA,8066722278,5,10,CCFN/2024/135,APRISCILLA@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Imo,Umuahia,12/08/1985,13,3,Admin123,11,Male
+ACHIKA,CHARLES,8066722279,5,10,CCFN/2024/136,ACHARLES@ccfng.org,Beside Unique Life Hotels,Anambra,Aguata,13/08/1985,12,3,Admin123,11,Female
+Thomas,Kushike,8066722280,5,10,CCFN/2024/137,TKushike@ccfng.org,Along Timber Road,Ebonyi,Orlu,14/08/1985,13,3,Admin123,11,Male
+Onyewuchukwu,Robert,8066722281,5,10,CCFN/2024/138,ORobert@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Abia,Abakaliki,15/08/1985,14,3,Admin123,11,Male
+MBAKWE,ANTHONIA,8066722282,5,10,CCFN/2024/139,MANTHONIA@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Anambra,Enugu North,16/08/1985,12,3,Admin123,11,Male
+Oliver,Ebuka,8066722283,6,11,CCFN/2024/140,OEbuka@ccfng.org,Beside Christ Apostolic Church Afara,Imo,Osisioma,17/08/1985,10,3,Admin123,11,Female
+Iwodi,Martha,8066722284,6,11,CCFN/2024/141,IMartha@ccfng.org,Along Panyu Life Hotels,Ebonyi,Enugu South,18/08/1985,10,3,Admin123,11,Male
+Alfred,Igba,8066722285,6,11,CCFN/2024/142,AIgba@ccfng.org,Close to Christ Apostolic Church Emene,Enugu,Owerri North,19/08/1985,9,3,Admin123,"9, 10, 11",Female
+Nwaigbo,Queeneth,8066722286,6,11,CCFN/2024/143,NQueeneth@ccfng.org,Timbers Avenue New Owerri,Abia,Orumba South,20/08/1985,12,3,Admin123,11,Male
+"Eye,",Chinyere,8066722287,6,11,CCFN/2024/144,EChinyere@ccfng.org,Along All Season Hotel,Enugu,Ezza North,21/08/1985,13,3,Admin123,11,Male
+Ukaegbu,Modesty,8066722288,7,12,CCFN/2024/145,UModesty@ccfng.org,Beside Primary School,Anambra,Umuahia,22/08/1985,9,3,Admin123,"9, 10, 11",Female
+Ibekwe,Jeff,8066722289,7,12,CCFN/2024/146,IJeff@ccfng.org,Along Besala Road,Ebonyi,Aguata,23/08/1985,12,3,Admin123,11,Male
+"UMA-MBA,",BLESSING,8066722290,7,12,CCFN/2024/147,UBLESSING@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Abia,Orlu,24/08/1985,12,3,Admin123,11,Male
+NWACHUKWUu,IKECHUKWU,8066722291,7,12,CCFN/2024/148,NIKECHUKWU@ccfng.org,Beside Primary School,Anambra,Abakaliki,25/08/1985,13,3,Admin123,11,Female
+ASOGWA,HARRISON,8066722292,7,12,CCFN/2024/149,AHARRISON@ccfng.org,Along Besala Road,Imo,Enugu North,26/08/1985,12,3,Admin123,11,Male
+AMADI,GLADYS,8066722293,7,12,CCFN/2024/150,AGLADYS@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Ebonyi,Osisioma,27/08/1985,14,3,Admin123,11,Male
+Ufiem,Donatus,8066722294,8,13,CCFN/2024/151,UDonatus@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Enugu,Enugu South,28/08/1985,9,3,Admin123,"9, 10, 11",Male
+Ukel,John,8066722295,8,13,CCFN/2024/152,UJohn@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Abia,Owerri North,29/08/1985,12,3,Admin123,11,Female
+Queen,Brown,8066722296,8,13,CCFN/2024/153,QBrown@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Abia,Orumba South,30/08/1985,12,3,Admin123,11,Male
+Oluwadare,Owoyemi,8066722297,8,13,CCFN/2024/154,OOwoyemi@ccfng.org,Beside Unique Life Hotels,Anambra,Ezza North,31/08/1985,10,3,Admin123,11,Female
+Tama,Saleh,8066722298,8,13,CCFN/2024/155,TSaleh@ccfng.org,Along Timber Road,Imo,Umuahia,01/09/1985,12,3,Admin123,11,Male
+Florence,Okakwu,8066722299,9,14,CCFN/2024/156,FOkakwu@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Ebonyi,Orlu,02/09/1985,10,3,Admin123,11,Male
+Elebe,Eugene,8066722300,9,14,CCFN/2024/157,EEugene@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Enugu,Osisioma,03/09/1985,10,3,Admin123,11,Female
+Uloko,Mary,8066722301,9,14,CCFN/2024/158,UMary@ccfng.org,Beside Christ Apostolic Church Afara,Abia,Enugu South,04/09/1985,9,3,Admin123,"9, 10, 11",Male
+Grace,Okoye,8066722302,9,14,CCFN/2024/159,GOkoye@ccfng.org,Along Panyu Life Hotels,Enugu,Owerri North,05/09/1985,10,3,Admin123,11,Male
+Emmanuellaa,Owoicho,8066722303,9,14,CCFN/2024/160,EOwoicho@ccfng.org,Close to Christ Apostolic Church Emene,Imo,Orumba South,06/09/1985,12,3,Admin123,11,Female
+Njoku,Ijeoma,8066722304,9,14,CCFN/2024/161,NIjeoma@ccfng.org,Timbers Avenue New Owerri,Anambra,Ezza North,07/09/1985,12,3,Admin123,11,Male
+Chukwu,Chinwe,8066722305,9,14,CCFN/2024/162,CChinwe@ccfng.org,Along All Season Hotel,Ebonyi,Umuahia,08/09/1985,12,3,Admin123,11,Male
+Williams,Paul,8066722306,9,14,CCFN/2024/163,WPaul@ccfng.org,Beside Primary School,Abia,Aguata,09/09/1985,12,3,Admin123,11,Male
+Emmanuell,Mbonyam,8066722307,10,15,CCFN/2024/164,EMbonyam@ccfng.org,Along Besala Road,Anambra,Orlu,10/09/1985,14,3,Admin123,"9, 11",Female
+Adebare,Sodimu,8066722308,5,10,CCFN/2024/165,Sadebare@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Anambra,Ezza North,11/09/1985,10,2,Admin123,"9, 10, 11",Female
+Agartha,Ukamaka,8066722309,10,16,CCFN/2024/166,AEzeh@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Imo,Umuahia,12/09/1985,13,2,Admin123,"9, 11",Female
+AMODU,BALA,8066722310,8,14,CCFN/2024/167,Bamodu@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Ebonyi,Orlu,13/09/1985,12,2,Admin123,11,Male
+Angela,Egbe,8066722311,8,14,CCFN/2024/168,aegbe@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Enugu,Osisioma,14/09/1985,12,2,Admin123,11,Female
+Anuli,Chidia,8066722312,2,4,CCFN/2024/169,Aoyeka@ccfng.org,Beside Unique Life Hotels,Abia,Enugu South,15/09/1985,12,2,Admin123,"7, 8, 9, 10, 11",Female
+Arith,Ofem,8066722313,9,15,CCFN/2024/170,AOfem@ccfng.org,Along Timber Road,Enugu,Owerri North,16/09/1985,13,2,Admin123,11,Female
+AUSTIN,ONOJA,8066722314,2,7,CCFN/2024/171,AONOJA@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Imo,Orumba South,17/09/1985,14,2,Admin123,"13, 11",Male
+BAMIYO,FEMI,8066722315,7,12,CCFN/2024/172,Bogundipe@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Anambra,Ezza North,18/09/1985,12,2,Admin123,11,Male
+Benedicta,Ozonweke,8066722316,7,13,CCFN/2024/173,bozonweke@ccfng.org,Beside Christ Apostolic Church Afara,Ebonyi,Umuahia,19/09/1985,9,2,Admin123,"9, 10, 11",Female
+Benjamin,Obi,8066722317,4,9,CCFN/2024/174,benjaminobi@ccfng.org,Along Panyu Life Hotels,Abia,Aguata,20/09/1985,12,2,Admin123,11,Male
+BERNARD,OBODOECHINA,8066722318,1,3,CCFN/2024/175,BObodoechina@ccfng.org,Close to Christ Apostolic Church Emene,Anambra,Orlu,21/09/1985,12,2,Admin123,11,Male
+Bidi,Tordue,8066722319,1,3,CCFN/2024/176,TBidi@ccfng.org,Timbers Avenue New Owerri,Anambra,Ezza North,22/09/1985,12,2,Admin123,11,Male
+Charles,Inegbeniki,8066722320,1,3,CCFN/2024/177,CInegbeniki@ccfng.org,Along All Season Hotel,Imo,Umuahia,23/09/1985,9,2,Admin123,"9, 10, 11",Male
+CHIDIEBERE,OGUGUO,8066722321,3,8,CCFN/2024/178,casadu@ccfng.org,Beside Primary School,Ebonyi,Orlu,24/09/1985,12,2,Admin123,"6, 11",Female
+Chigozie,Monica,8066722322,9,15,CCFN/2024/179,Conuzulike@ccfng.org,Along Besala Road,Enugu,Osisioma,25/09/1985,10,2,Admin123,11,Female
+CHINASA,JULIET,8066722324,2,5,CCFN/2024/181,COkoye@ccfng.org,Beside Primary School,Enugu,Owerri North,27/09/1985,13,2,Admin123,"7, 11",Female
+Chinemelum,Ugwuta,8066722325,2,4,CCFN/2024/182,CUgwuta@ccfng.org,Along Besala Road,Imo,Orumba South,28/09/1985,13,2,Admin123,"7, 11",Female
+CHINONSO,ASOGWA,8066722326,1,3,CCFN/2024/183,CASOGWA@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Anambra,Ezza North,29/09/1985,12,2,Admin123,11,Male
+Chinwendu,Chinenye,8066722327,2,4,CCFN/2024/184,CCOkafor@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Ebonyi,Umuahia,30/09/1985,13,2,Admin123,"7, 11",Female
+CHISOMM,Chukwuani,8066722328,6,12,CCFN/2024/185,CChukwuani@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Abia,Aguata,01/10/1985,13,2,Admin123,11,Female
+chisom,Iyidobi,8066722329,8,14,CCFN/2024/186,CIyidobi@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Anambra,Orlu,02/10/1985,13,2,Admin123,11,Female
+CHRISTIAN,AHUNANYA,8066722330,1,3,CCFN/2024/187,CAhunanya@ccfng.org,Beside Unique Life Hotels,Anambra,Ezza North,03/10/1985,10,2,Admin123,11,Male
+Chukwudii,Cyril,8066722331,2,7,CCFN/2024/188,cojiogu@ccfng.org,Along Timber Road,Imo,Umuahia,04/10/1985,14,2,Admin123,"13, 11",Male
+CHUKWUDI,GREG,8066722332,4,9,CCFN/2024/189,CMADUBUATTAH@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Ebonyi,Orlu,05/10/1985,12,2,Admin123,11,Male
+CHUKWUDIM,OKWOR,8066722333,4,9,CCFN/2024/190,cOKWOR@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Enugu,Osisioma,06/10/1985,8,2,Admin123,"4, 9, 10, 11",Male
+DLAMA,EZEKIEL,8066722334,1,1,CCFN/2024/191,Dezekiel@ccfng.org,Beside Christ Apostolic Church Afara,Abia,Enugu South,07/10/1985,12,2,Admin123,11,Male
+Edward,Ugba,8066722335,8,14,CCFN/2024/192,EUgba@ccfng.org,Along Panyu Life Hotels,Enugu,Owerri North,08/10/1985,9,2,Admin123,"9, 10, 11",Male
+EGHAREVBA,ITA,8066722336,4,9,CCFN/2024/193,Eegharevba@ccfng.org,Close to Christ Apostolic Church Emene,Imo,Orumba South,09/10/1985,12,2,Admin123,11,Male
+EKE,EZINNE,8066722337,9,15,CCFN/2024/194,EEZINNE@CCFNG.ORG,Timbers Avenue New Owerri,Anambra,Ezza North,10/10/1985,12,2,Admin123,11,Female
+Elizabeth,Marcus,8066722338,1,3,CCFN/2024/195,EMarcus@ccfng.org,Along All Season Hotel,Ebonyi,Umuahia,11/10/1985,13,2,Admin123,11,Male
+ELSIE,DALYOP,8066722339,5,10,CCFN/2024/196,eDALYOP@ccfng.org,Beside Primary School,Abia,Aguata,12/10/1985,12,2,Admin123,11,Female
+EMMANUEL,IHEOMAMERE,8066722340,1,1,CCFN/2024/197,EIHEOMAMERE@CCFNG.ORG,Along Besala Road,Anambra,Orlu,13/10/1985,13,2,Admin123,11,Male
+ENEH,EDMUND,8066722341,2,7,CCFN/2024/198,ENWANNEBUIKE@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Anambra,Ezza North,14/10/1985,14,2,Admin123,"13, 11",Male
+FABIAN,ASUQUO,8066722342,3,8,CCFN/2024/199,FBASSEY@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Imo,Umuahia,15/10/1985,7,2,Admin123,3,Male
+Favour,Ehi,8066722343,4,9,CCFN/2024/200,FOchalefu@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Ebonyi,Orlu,16/10/1985,12,2,Admin123,11,Female
+FOLUKEMI,ABIOLA,8066722344,3,8,CCFN/2024/201,FIBIDUNMOYE@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Enugu,Osisioma,17/10/1985,12,2,Admin123,11,Female
+Fredrick,Whezum,8066722345,3,8,CCFN/2024/202,fwhezum@ccfng.org,Beside Unique Life Hotels,Abia,Enugu South,18/10/1985,9,2,Admin123,"5, 6, 9, 10, 11",Male
+GEOFFERY,ASOGWA,8066722346,2,7,CCFN/2024/203,GAsogwa@ccfng.org,Along Timber Road,Enugu,Owerri North,19/10/1985,14,2,Admin123,"13, 11",Male
+Geraldine,Onyeka,8066722347,8,14,CCFN/2024/204,Gonyeka@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Imo,Orumba South,20/10/1985,12,2,Admin123,11,Female
+Gina,Odo,8066722348,3,8,CCFN/2024/205,GOodo@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Anambra,Ezza North,21/10/1985,12,2,Admin123,"6, 11",Female
+Henrietta,Ukamaka,8066722349,7,13,CCFN/2024/206,hOzobodo@ccfng.org,Beside Christ Apostolic Church Afara,Ebonyi,Umuahia,22/10/1985,12,2,Admin123,11,Female
+Ibeto,Olive,8066722350,9,15,CCFN/2024/207,Oibeto@ccfng.org,Along Panyu Life Hotels,Abia,Aguata,23/10/1985,12,2,Admin123,11,Male
+Ifeanyi,Emmanuel,8066722351,2,7,CCFN/2024/208,IEze@ccfng.org,Close to Christ Apostolic Church Emene,Anambra,Orlu,24/10/1985,14,2,Admin123,"13, 11",Male
+IKECHUKWU,OKORIE,8066722352,2,7,CCFN/2024/209,IOkorie@ccfng.org,Timbers Avenue New Owerri,Anambra,Ezza North,25/10/1985,14,2,Admin123,"13, 11",Male
+INNOCENT,Offiah,8066722353,2,7,CCFN/2024/210,IOffiah@ccfng.org,Along All Season Hotel,Imo,Umuahia,26/10/1985,14,2,Admin123,"13, 11",Male
+IVEREN,BERNADETTE HANMAIKYUR,8066722354,3,8,CCFN/2024/211,ISHISHI@ccfng.org,Beside Primary School,Ebonyi,Orlu,27/10/1985,10,2,Admin123,"6, 11",Female
+Jamese,Bamidele,8066722355,2,7,CCFN/2024/212,JOkogbe@ccfng.org,Along Besala Road,Enugu,Osisioma,28/10/1985,14,2,Admin123,"13, 11",Male
+Jamess,Chokom,8066722356,3,8,CCFN/2024/213,JChokom@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Abia,Enugu South,29/10/1985,12,2,Admin123,11,Female
+JAMES,ROLEX,8066722357,1,1,CCFN/2024/214,JamesOkoh@ccfng.org,Beside Primary School,Enugu,Owerri North,30/10/1985,10,2,Admin123,"2, 9, 11",Male
+Johnpaul,Chibuike,8066722358,6,12,CCFN/2024/215,JOnwuaso@ccfng.org,Along Besala Road,Imo,Orumba South,31/10/1985,12,2,Admin123,11,Male
+JOYCE,NNANNA,8066722361,1,3,CCFN/2024/218,Jnnanna@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Abia,Aguata,03/11/1985,12,2,Admin123,11,Male
+Judee,Nnamadim,8066722362,6,12,CCFN/2024/219,Njude@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Anambra,Orlu,04/11/1985,12,2,Admin123,11,Male
+JUDE,UGWUTA,8066722363,2,7,CCFN/2024/220,JUgwuta@ccfng.org,Beside Unique Life Hotels,Anambra,Ezza North,05/11/1985,14,2,Admin123,"13, 11",Male
+Lilah,Santas,8066722364,4,9,CCFN/2024/221,LSantas@ccfng.org,Along Timber Road,Imo,Umuahia,06/11/1985,12,2,Admin123,11,Female
+Lovina,Ukwueze,8066722365,9,15,CCFN/2024/222,lukwueze@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Ebonyi,Orlu,07/11/1985,10,2,Admin123,11,Female
+MADU,EDWARD,8066722366,9,15,CCFN/2024/223,Emadu@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Enugu,Osisioma,08/11/1985,9,2,Admin123,"9, 10, 11",Male
+MARTINS,OWOICHO,8066722367,2,5,CCFN/2024/224,MOwoicho@ccfng.org,Beside Christ Apostolic Church Afara,Abia,Enugu South,09/11/1985,13,2,Admin123,"7, 11",Male
+MATHEW,ADUNBI,8066722368,1,1,CCFN/2024/225,MAdunbi@ccfng.org,Along Panyu Life Hotels,Enugu,Owerri North,10/11/1985,13,2,Admin123,11,Male
+Mathias,Igbadi,8066722369,4,9,CCFN/2024/226,migbadi@ccfng.org,Close to Christ Apostolic Church Emene,Imo,Orumba South,11/11/1985,12,2,Admin123,11,Male
+Mercy,Uwegba,8066722370,5,10,CCFN/2024/227,Muwegba@ccfng.org,Timbers Avenue New Owerri,Anambra,Ezza North,12/11/1985,13,2,Admin123,11,Female
+Mmaduabuchi,Symbol,8066722371,5,10,CCFN/2024/228,MSymbol@ccfng.org,Along All Season Hotel,Ebonyi,Umuahia,13/11/1985,12,2,Admin123,11,Male
+Monica,Akubuogo,8066722372,3,8,CCFN/2024/229,MAkubuogo@ccfng.org,Beside Primary School,Abia,Aguata,14/11/1985,12,2,Admin123,"6, 11",Female
+MORRIS,CHUKWUDI,8066722373,5,10,CCFN/2024/230,MMICHAEL@ccfng.org,Along Besala Road,Anambra,Orlu,15/11/1985,12,2,Admin123,11,Male
+Muogbo,patience,8066722374,1,2,CCFN/2024/231,Pmuogbo@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Anambra,Ezza North,16/11/1985,12,2,Admin123,11,Female
+Nnamdi,Uzoigwe,8066722375,7,13,CCFN/2024/232,NUzoigwe@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Imo,Umuahia,17/11/1985,12,2,Admin123,11,Male
+NNENNA,RITA,8066722376,3,8,CCFN/2024/233,NAninweze@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Ebonyi,Orlu,18/11/1985,13,2,Admin123,"6, 11",Female
+Nwachukwu,Ogechukwu,8066722377,6,12,CCFN/2024/234,Onwachukwu@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Enugu,Osisioma,19/11/1985,12,2,Admin123,11,Female
+Obiageli,Stephanie,8066722378,7,12,CCFN/2024/235,OILOZUMBA@ccfng.org,Beside Unique Life Hotels,Abia,Enugu South,20/11/1985,12,2,Admin123,11,Female
+Obioma,Ali,8066722379,5,10,CCFN/2024/236,OAli@ccfng.org,Along Timber Road,Enugu,Owerri North,21/11/1985,12,2,Admin123,11,Female
+OGECHI,EZEOBI,8066722380,1,3,CCFN/2024/237,OEzeobi@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Imo,Orumba South,22/11/1985,10,2,Admin123,11,Male
+Okon,Nse,8066722381,8,14,CCFN/2024/238,Nokon@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Anambra,Ezza North,23/11/1985,12,2,Admin123,11,Male
+OLUWASEUN,GARUBA,8066722382,1,2,CCFN/2024/239,oGARUBA@ccfng.org,Beside Christ Apostolic Church Afara,Ebonyi,Umuahia,24/11/1985,9,2,Admin123,"9, 11",Female
+ONYEKACHI,Okonkwo,8066722383,1,1,CCFN/2024/240,OOkonkwo@ccfng.org,Along Panyu Life Hotels,Abia,Aguata,25/11/1985,12,2,Admin123,11,Male
+ONYEMENAM,KiNGSLEY,8066722384,7,13,CCFN/2024/241,oKiNGSLEY@ccfng.org,Close to Christ Apostolic Church Emene,Anambra,Orlu,26/11/1985,12,2,Admin123,11,Male
+Peterr,Okechukwu,8066722386,5,10,CCFN/2024/243,Pnwobodo@ccfng.org,Along All Season Hotel,Imo,Umuahia,28/11/1985,13,2,Admin123,11,Male
+Peter,Uche,8066722387,7,13,CCFN/2024/244,PChiagorom@ccfng.org,Beside Primary School,Ebonyi,Orlu,29/11/1985,12,2,Admin123,11,Male
+Rabi,Odeleye,8066722388,6,12,CCFN/2024/245,rsambo@ccfng.org,Along Besala Road,Enugu,Osisioma,30/11/1985,9,2,Admin123,"9, 10, 11",Female
+Raphael,Ugwuta,8066722389,3,8,CCFN/2024/246,RUgwuta@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Abia,Enugu South,01/12/1985,13,2,Admin123,"6, 11",Male
+REV. SR Chibudo,Okafor,8066722390,6,12,CCFN/2024/247,cCHIBUDO@ccfng.org,Beside Primary School,Enugu,Owerri North,02/12/1985,12,2,Admin123,11,Female
+SAMPSON,ONYEMACHI,8066722391,4,9,CCFN/2024/248,SOnyemachi@ccfng.org,Along Besala Road,Imo,Orumba South,03/12/1985,9,2,Admin123,11,Male
+SYLVESTER,CHUKWUDI,8066722392,7,13,CCFN/2024/249,sOJIOGU@ccfng.org,"Opposite Christ Assemble Church, Uwgueke",Anambra,Ezza North,04/12/1985,12,2,Admin123,11,Male
+Temitope,Akande,8066722393,1,1,CCFN/2024/250,TAkande@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Ebonyi,Umuahia,05/12/1985,13,2,Admin123,11,Male
+Uchennaa,Johnpaul,8066722394,9,15,CCFN/2024/251,UEnebe@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Abia,Aguata,06/12/1985,12,2,Admin123,11,Male
+Uchenna,Paulinus,8066722395,6,12,CCFN/2024/252,UOkafor@ccfng.org,"No. 15 Bandela Street, Beside High Court, Ibeku",Anambra,Orlu,07/12/1985,12,2,Admin123,11,Female
+Ude,Enyioma,8066722396,7,13,CCFN/2024/253,Eude@ccfng.org,Beside Unique Life Hotels,Anambra,Ezza North,08/12/1985,12,2,Admin123,11,Female
+Victor,Nnamene,8066722397,9,15,CCFN/2024/254,VNnamene@ccfng.org,Along Timber Road,Imo,Umuahia,09/12/1985,12,2,Admin123,11,Male
+Victoria,Evoh,8066722398,1,3,CCFN/2024/255,Vevoh@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Ebonyi,Orlu,10/12/1985,12,2,Admin123,11,Female
+Wisdom,Uso,8066722399,8,14,CCFN/2024/256,WUso@ccfng.org,Opposite Christ Apostolic Church Amuzukwu,Enugu,Osisioma,11/12/1985,13,2,Admin123,11,Female
+Yusuf,Yakubu,8066722400,1,2,CCFN/2024/257,Yyusuf@ccfng.org,Beside Christ Apostolic Church Afara,Abia,Enugu South,12/12/1985,12,2,Admin123,11,Male

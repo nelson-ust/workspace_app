@@ -1,0 +1,13 @@
+.env
+venv
+__pycache__/
+*.pyc
+deployment.txt
+/workplanlogs
+*.logs
+*.pdf
+/workplanlogs/*.logs
+/Employee_documents
+/fuel_purchase_documents
+*.pdf
+*.zip

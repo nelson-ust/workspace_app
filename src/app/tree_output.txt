@@ -1,0 +1,193 @@
+.
+├── __init__.py
+├── __pycache__
+│   ├── __init__.cpython-310.pyc
+│   ├── config.cpython-310.pyc
+│   ├── logging_config.cpython-310.pyc
+│   ├── logging_congfig.cpython-310.pyc
+│   ├── logging_helpers.cpython-310.pyc
+│   └── main.cpython-310.pyc
+├── auth
+│   ├── __pycache__
+│   ├── auth.py
+│   ├── dependencies.py
+│   ├── email.py
+│   ├── security.py
+│   └── third_party_template_generator.py
+├── config.py
+├── db
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── database.py
+│   ├── models_metadata.py
+│   └── query_builder.py
+├── fuel_purchase_documents
+│   ├── Gov-Otti-at-Aro-Atani-Day.png
+│   └── WhatsApp Image 2024-05-31 at 09.52.05.png
+├── images
+│   └── happy_birthday.png
+├── init_db.py
+├── logging_config.py
+├── logging_helpers.py
+├── main.py
+├── models
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── all_models.py
+│   ├── all_models_old.py
+│   ├── hrm_models.py
+│   └── new_models.py
+├── repositories
+│   ├── __pycache__
+│   ├── actionPointSource_repository.py
+│   ├── assignment_repository.py
+│   ├── audit_log_repository.py
+│   ├── base_repository.py
+│   ├── company_repository.py
+│   ├── custom_query_repository.py
+│   ├── department_repository.py
+│   ├── designation_repository.py
+│   ├── driver_repository.py
+│   ├── employee_repository.py
+│   ├── fuel_purchase_repository.py
+│   ├── funder_repository.py
+│   ├── funding_repository.py
+│   ├── issueLogSource_repository.py
+│   ├── issue_log_repository.py
+│   ├── issue_status_repository.py
+│   ├── location_repository.py
+│   ├── login_history_repository.py
+│   ├── maintenancetype_repository.py
+│   ├── meal_combination_repository.py
+│   ├── meeting_repository.py
+│   ├── meeting_type_repository.py
+│   ├── milestone_repository.py
+│   ├── plan_repo.py
+│   ├── project_component_repository.py
+│   ├── project_repository.py
+│   ├── requeststatus_repository.py
+│   ├── setting_repository.py
+│   ├── site_repository.py
+│   ├── srt_repository.py
+│   ├── task_repository.py
+│   ├── task_status_repository.py
+│   ├── tenancy_repository.py
+│   ├── thematic_area_repository.py
+│   ├── third_party_participant_repository.py
+│   ├── trip_repo.py
+│   ├── trip_report_repository.py
+│   ├── trip_repository.py
+│   ├── trip_special_location_repository.py
+│   ├── unit_repository.py
+│   ├── userRole_repository.py
+│   ├── user_repository.py
+│   ├── vehicle_maintenance_repository.py
+│   ├── vehicle_repository.py
+│   ├── work_plan_repo.py
+│   ├── workplanSource_repository.py
+│   └── workplan_repository.py
+├── requirements.txt
+├── routes
+│   ├── __pycache__
+│   ├── actionPointSource_route.py
+│   ├── assignment_routes.py
+│   ├── audit_log_routes.py
+│   ├── auth_routes.py
+│   ├── company_routes.py
+│   ├── custom_query_router.py
+│   ├── department_routes.py
+│   ├── designation_routes.py
+│   ├── driver_routes.py
+│   ├── employee_routes.py
+│   ├── fuel_purchase_routes.py
+│   ├── funder_routes.py
+│   ├── funding_routes.py
+│   ├── issueLogSource_routes.py
+│   ├── issue_routes.py
+│   ├── issue_status_routes.py
+│   ├── location_routes.py
+│   ├── login_history_routes.py
+│   ├── maintenanceType_routes.py
+│   ├── meal_combination_routes.py
+│   ├── meeting_routes.py
+│   ├── meeting_type_routes.py
+│   ├── milestone_routes.py
+│   ├── project_component_routes.py
+│   ├── project_routes.py
+│   ├── requeststatus_routes.py
+│   ├── setting_routes.py
+│   ├── site_routes.py
+│   ├── srt_routes.py
+│   ├── task_routes.py
+│   ├── task_status_routes.py
+│   ├── tenancy_routes.py
+│   ├── thematic_area_routes.py
+│   ├── third_party_participant_routes.py
+│   ├── trip_report_routes.py
+│   ├── trip_routes.py
+│   ├── trip_special_location_routes.py
+│   ├── unit_routes.py
+│   ├── userRole_routes.py
+│   ├── user_routes.py
+│   ├── vehicle_maintenance_routes.py
+│   ├── vehicle_routes.py
+│   ├── workplanSource_routes.py
+│   └── workplan_routes.py
+├── schemas
+│   ├── __pycache__
+│   ├── actionPointSource_schemas.py
+│   ├── assignment_schemas.py
+│   ├── audit_log_schemas.py
+│   ├── company_schemas.py
+│   ├── custom_query_schema.py
+│   ├── department_schemas.py
+│   ├── designation_schemas.py
+│   ├── driver_schemas.py
+│   ├── employee_schemas.py
+│   ├── fuel_purchase_schemas.py
+│   ├── funder_schemas.py
+│   ├── funding_schemas.py
+│   ├── issueLogSource_schemas.py
+│   ├── issue_schemas.py
+│   ├── issue_status_schemas.py
+│   ├── location_schemas.py
+│   ├── login_history_schemas.py
+│   ├── maintenancetype_schemas.py
+│   ├── meal_combination_schemas.py
+│   ├── meeting_schemas.py
+│   ├── meeting_type_schemas.py
+│   ├── milestone_schemas.py
+│   ├── project_component_shemas.py
+│   ├── project_schemas.py
+│   ├── requeststatus_schemas.py
+│   ├── site_schemas.py
+│   ├── srt_schemas.py
+│   ├── task_schemas.py
+│   ├── task_status_schemas.py
+│   ├── tenancy_schemas.py
+│   ├── thematic_area_schemas.py
+│   ├── token_schemas.py
+│   ├── trip_report_schemas.py
+│   ├── trip_schemas.py
+│   ├── trip_start_location_schemas.py
+│   ├── unit_schemas.py
+│   ├── userRole_schemas.py
+│   ├── user_schemas.py
+│   ├── vehicle_maintenance_schemas.py
+│   ├── vehicle_movement_schemas.py
+│   ├── vehicle_schemas.py
+│   ├── workplanSource_schemas.py
+│   ├── workplan_schemas.py
+│   └── zoom_meeting_schemas.py
+├── seed_data.py
+├── seed_data_old.py
+├── staff_directory.csv
+├── test.py
+├── test.txt
+├── tree_output.txt
+├── trip_reports
+│   └── attah-alvin-nelson-third-term-half-term-2022-2023-year-2-ruby.pdf
+└── workplanlogs
+    └── workplan_2024-07-23.log.2024-07-23
+
+18 directories, 217 files

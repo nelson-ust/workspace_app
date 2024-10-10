@@ -1,0 +1,88 @@
+curl -X 'POST' \
+  'http://0.0.0.0:8000/api/v1/trip-reports/submit' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJuYXR0YWhAY2Nmbmcub3JnIiwiZXhwIjoxNzE5OTU1OTIwfQ.3XaMDerPvEXo8t-1JDi1R1IcEIKZ_kqwJqVcuxmmTBI' \
+  -H 'Content-Type: multipart/form-data' \
+  -F 'submission={
+  "trip_id": 6,
+  "workplan_id": 7,
+  "summary": "Test Summary",
+  "trip_outcome": "Test Outcome",
+  "observations": "Test Observation",
+  "issue_identified": true,
+  "trip_completed": true,
+  "reason": "Test Reason",
+  "site_ids": [1],
+  "issues": [
+    {
+      "issue_description": "Test Issue Description",
+      "status_id": 1,
+      "time_line_date": "2024-07-10T00:00:00",
+      "key_recommendation": "Test Recommendation",
+      "focal_persons": [2, 3]
+    }
+  ]
+}' \
+  -F 'document=/Users/nelsonattah/Documents/5371fe2a-da8f-45d0-913d-fb3680a62393.pdf;type=application/pdf'
+
+
+  /Users/nelsonattah/Documents
+
+
+-F 'document=@path/to/your/file.pdf;type=application/pdf'
+
+
+
+
+
+
+
+
+curl -X 'POST' \
+  'http://0.0.0.0:8000/api/v1/trip-reports/submit' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJuYXR0YWhAY2Nmbmcub3JnIiwiZXhwIjoxNzE5OTU1OTIwfQ.3XaMDerPvEXo8t-1JDi1R1IcEIKZ_kqwJqVcuxmmTBI' \
+  -H 'Content-Type: multipart/form-data' \
+  -F 'submission={"trip_id":6,"workplan_id":7,"summary":"Test Summary","trip_outcome":"Test Outcome","observations":"Test Observation","issue_identified":true,"trip_completed":true,"reason":"Test Reason","site_ids":[1],"issues":[{"issue_description":"Test Issue Description","status_id":1,"time_line_date":"2024-07-10T00:00:00","key_recommendation":"Test Recommendation","focal_persons":[2,3]}]}' \
+  -F 'document=/Users/nelsonattah/Documents/5371fe2a-da8f-45d0-913d-fb3680a62393.pdf;type=application/pdf'
+
+  
+  
+  -F 'document=@/path/to/your/file.pdf;type=application/pdf'
+
+
+    access_log /snap/workspace/workplan_manager/src/app/logs/nginx-access.log;
+    error_log /snap/workspace/workplan_manager/src/app/logs/nginx-error.log;
+
+
+
+
+
+upstream app_server {
+    server unix:/root/snap/workspace/workplan_manager/src/app/run/gunicorn.sock fail_timeout=0;
+}
+
+server {
+    listen 82;
+    server_name 138.68.82.230;  # Replace with your public IP
+
+    keepalive_timeout 5;
+    client_max_body_size 10M;
+
+    access_log /snap/workspace/workplan_manager/src/app/logs/nginx-access.log;
+    error_log /snap/workspace/workplan_manager/src/app/logs/nginx-error.log;
+
+    location / {
+        proxy_pass http://app_server;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+
+        # The FastAPI app will handle CORS headers via CORSMiddleware
+    }
+
+    location /static/ {
+        alias /snap/workspace/workplan_manager/src/app/static/;
+        expires 30d;
+    }
+}
