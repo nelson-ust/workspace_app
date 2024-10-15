@@ -13,11 +13,13 @@ from sqlalchemy import (
     Table,
     Enum as SQLAEnum,
     Time,
+    UniqueConstraint,
 )
 from sqlalchemy.orm import relationship, backref, declarative_base, configure_mappers
 from enum import Enum as PyEnum
 import datetime
 from db.database import Base
+
 
 
 # Base Model
@@ -55,6 +57,7 @@ class ActionEnum(PyEnum):
     SUBMIT_TRIP_REPORT = "SUBMIT_TRIP_REPORT"
     COMPLETED = "COMPLETED"
     RE_OPENED = "RE_OPENED"
+    VIEW="VIEW"
 
 
 class MealSelectionType(PyEnum):
@@ -226,10 +229,56 @@ scope_of_work_line_item_employee_association = Table(
 
 
 # User and Role Models
+
+# class UserRole(BaseTable):
+#     __tablename__ = "user_roles"
+#     # id = Column(Integer, primary_key=True, autoincrement=True)
+#     name = Column(String(50), unique=True, nullable=False)
+#     description = Column(Text, nullable=True)
+
+#     # Relationships
+#     users = relationship("User", secondary=users_roles, back_populates="roles")
+#     approval_steps = relationship("ApprovalStep", back_populates="role")
+
+
 class UserRole(BaseTable):
     __tablename__ = "user_roles"
+    
     name = Column(String(50), unique=True, nullable=False)
+    description = Column(Text, nullable=True)
+
+    # Relationships
     users = relationship("User", secondary=users_roles, back_populates="roles")
+    approval_steps = relationship("ApprovalStep", back_populates="role")
+    
+    # Relationship with RouteRole to define accessible routes for each role
+    route_roles = relationship("RouteRole", back_populates="role")
+
+
+class Route(BaseTable):
+    __tablename__ = "routes"
+    
+    path = Column(String(255), nullable=False)
+    method = Column(String(10), nullable=False)  # e.g., 'GET', 'POST', etc.
+    description = Column(String, nullable=True)
+    # Unique constraint to ensure each path-method combination is unique
+    __table_args__ = (UniqueConstraint("path", "method", name="uix_path_method"),)
+    
+    # Relationship with RouteRole to define roles that have access to this route
+    route_roles = relationship("RouteRole", back_populates="route")
+    module_id = Column(Integer, ForeignKey('modules.id'))
+    
+    module = relationship("Module", back_populates="routes")
+
+class RouteRole(Base):
+    __tablename__ = "route_roles"
+    
+    route_id = Column(Integer, ForeignKey("routes.id", ondelete="CASCADE"), primary_key=True)
+    role_id = Column(Integer, ForeignKey("user_roles.id", ondelete="CASCADE"), primary_key=True)
+    
+    # Relationships
+    route = relationship("Route", back_populates="route_roles")
+    role = relationship("UserRole", back_populates="route_roles")
 
 
 class User(BaseTable):
@@ -250,8 +299,11 @@ class User(BaseTable):
     audit_logs = relationship("AuditLog", back_populates="user")
     login_history = relationship("LoginHistory", back_populates="user")
     assignments = relationship("Assignment", back_populates="initiating_user")
+    approval_logs = relationship("ApprovalLog", back_populates="user")
     __table_args__ = (Index("ix_users_email", "email"),)
 
+    # def __repr__(self):
+    #     return f"<User(id={self.id}, username={self.username}, email={self.email})>"
 
 class LoginHistory(BaseTable):
     __tablename__ = "login_history"
@@ -394,79 +446,113 @@ class ScopeOfWork(BaseTable):
     line_items = relationship("ScopeOfWorkLineItem", back_populates="scope_of_work")
 
 
+class ApprovalFlow(BaseTable):
+    __tablename__ = "approval_flows"
+    
+    name = Column(String(100), nullable=False, unique=True)
+    description = Column(Text, nullable=True)
+    module_id = Column(Integer, ForeignKey('modules.id'), nullable=False)
 
-# class WorkPlan(BaseTable):
-#     __tablename__ = "work_plans"
-#     workplan_code = Column(String(20), nullable=True)
-#     activity_title = Column(String(255), nullable=False)
-#     specific_task = Column(Text, nullable=False)
-#     logistics_required = Column(String(100), nullable=True)
-#     reason = Column(Text, nullable=True)
-#     status = Column(String(20), nullable=True)
-#     activity_start_time = Column(Time, nullable=True)
-#     activity_date = Column(Date, nullable=False)
+    # Relationships
+    module = relationship('Module', back_populates='approval_flows')
+    # steps = relationship("ApprovalStep", back_populates="flow", cascade="all, delete-orphan")
+    steps = relationship("ApprovalStep", back_populates="approval_flow", cascade="all, delete-orphan")
+    work_plans = relationship("WorkPlan", back_populates="approval_flow")
+    trips = relationship("Trip", back_populates="approval_flow")
+    timesheets = relationship("Timesheet", back_populates="approval_flow")
+    leave_requests = relationship("LeaveRequest", back_populates="approval_flow")
+    personal_development_reviews = relationship("PersonalDevelopmentReview", back_populates="approval_flow")
 
-#     date_reviewed = Column(DateTime, nullable=True)
-#     date_approved = Column(DateTime, nullable=True)
-#     date_rescheduled = Column(DateTime, nullable=True)
-#     date_denied = Column(DateTime, nullable=True)
-#     is_rescheduled = Column(Boolean, default=False, nullable=False)
-#     is_denied = Column(Boolean, default=False, nullable=False)
-#     is_approved = Column(Boolean, default=False, nullable=False)
-#     archived = Column(Boolean, default=False, nullable=False)
-#     is_report_submitted = Column(Boolean, nullable=True)
-#     need_vehicle = Column(Boolean, nullable=True)
-#     vehicle_assigned = Column(Boolean, nullable=True)
-#     initiating_user_id = Column(Integer, ForeignKey("users.id"))
-#     initiating_unit_id = Column(Integer, ForeignKey("units.id"), nullable=True)
-#     reviewed_by = Column(Integer, ForeignKey("users.id"), nullable=True)
-#     approved_by = Column(Integer, ForeignKey("users.id"), nullable=True)
-#     initiating_srt_id = Column(Integer, ForeignKey("srts.id"), nullable=True)
-#     initiating_department_id = Column(
-#         Integer, ForeignKey("departments.id"), nullable=True
-#     )
-#     initiating_thematic_area_id = Column(
-#         Integer, ForeignKey("thematic_areas.id"), nullable=True
-#     )
-#     group_id = Column(Integer, nullable=True)
-#     initiating_user = relationship("User", foreign_keys=[initiating_user_id])
-#     reviewing_user = relationship("User", foreign_keys=[reviewed_by])
-#     approving_user = relationship("User", foreign_keys=[approved_by])
-#     initiating_unit = relationship("Unit", foreign_keys=[initiating_unit_id])
-#     initiating_srt = relationship("SRT", foreign_keys=[initiating_srt_id])
-#     initiating_department = relationship(
-#         "Department", foreign_keys=[initiating_department_id]
-#     )
-#     thematic_area = relationship(
-#         "ThematicArea", foreign_keys=[initiating_thematic_area_id]
-#     )
-#     workplan_source_id = Column(Integer, ForeignKey("workplan_sources.id"))
-#     workplan_source = relationship("WorkPlanSource", back_populates="work_plans")
-#     tenancy_id = Column(Integer, ForeignKey("tenancy.id"))
-#     tenancy = relationship("Tenancy", back_populates="work_plans")
-#     activity_lead_id = Column(Integer, ForeignKey("employees.id"), nullable=True)
-#     activity_lead = relationship("Employee", back_populates="led_work_plans")
-#     trip_report = relationship("TripReport", back_populates="work_plan", uselist=False)
-#     sites = relationship(
-#         "Site", secondary=workplan_site_association, back_populates="work_plans"
-#     )
-#     employees = relationship(
-#         "Employee", secondary=workplan_employee_association, back_populates="work_plans"
-#     )
-#     trips = relationship(
-#         "Trip", secondary=trip_workplan_association, back_populates="work_plans"
-#     )
-#     locations = relationship(
-#         "Location", secondary=workplan_location_association, back_populates="work_plans"
-#     )
-#     project_id = Column(Integer, ForeignKey("projects.id"), nullable=True)
-#     project = relationship("Project", back_populates="work_plans")
-#     scopes_of_work = relationship("ScopeOfWork", back_populates="work_plan")
+    def __repr__(self):
+        return f"<ApprovalFlow(name={self.name}, description={self.description})>"
+
+
+class ApprovalStep(BaseTable):
+    __tablename__ = "approval_steps"
+    
+    flow_id = Column(Integer, ForeignKey("approval_flows.id"), nullable=False)
+    step_order = Column(Integer, nullable=False)
+    role_id = Column(Integer, ForeignKey("user_roles.id"), nullable=False)
+    action = Column(SQLAEnum(ActionEnum), nullable=False, default=ActionEnum.REVIEW)
+    description = Column(String, nullable=True)  # Add this line    
+    # Relationships
+    module_id = Column(Integer, ForeignKey('modules.id'), nullable=False)
+
+    # Relationship to the Module
+    module = relationship("Module", back_populates="approval_steps")
+    # flow = relationship("ApprovalFlow", back_populates="steps")
+    # Relationship to ApprovalFlow
+    approval_flow = relationship("ApprovalFlow", back_populates="steps")
+    
+    role = relationship("UserRole", back_populates="approval_steps")
+    logs = relationship("ApprovalLog", back_populates="step", cascade="all, delete-orphan")
+
+    __table_args__ = (
+        Index("ix_approval_steps_flow_id_step_order", "flow_id", "step_order"),
+    )
+
+
+class Module(BaseTable):
+    __tablename__ = 'modules'
+
+    
+    name = Column(String, unique=True, nullable=False)
+    description = Column(Text, nullable=True)
+
+    # # Establishing a relationship with the ApprovalFlow model
+    # approval_flows = relationship('ApprovalFlow', back_populates='module')
+    # Establish a one-to-many relationship with ApprovalFlow
+    approval_flows = relationship(
+        "ApprovalFlow",
+        back_populates="module",
+        cascade="all, delete-orphan"
+    )
+
+    # Establish a one-to-many relationship with ApprovalStep (optional)
+    # This assumes that each step is directly associated with a module
+    approval_steps = relationship(
+        "ApprovalStep",
+        back_populates="module",
+        cascade="all, delete-orphan"
+    )
+    routes = relationship("Route", back_populates="module")
+
+    def __repr__(self):
+        return f"<Module(name={self.name}, description={self.description})>"
+
+
+class ApprovalLog(BaseTable):
+    __tablename__ = "approval_logs"
+    
+    step_id = Column(Integer, ForeignKey("approval_steps.id"), nullable=False)
+    approved_by_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    status = Column(String(50), nullable=False, default="Pending")
+    comments = Column(Text, nullable=True)
+    date_actioned = Column(DateTime, default=datetime.datetime.utcnow)
+
+    # Foreign keys for relationships to modules that require approval
+    work_plan_id = Column(Integer, ForeignKey("work_plans.id"), nullable=True)
+    trip_id = Column(Integer, ForeignKey("trips.id"), nullable=True)
+    timesheet_id = Column(Integer, ForeignKey("timesheets.id"), nullable=True)
+    leave_request_id = Column(Integer, ForeignKey("leave_requests.id"), nullable=True)
+    personal_development_review_id = Column(Integer, ForeignKey("personal_development_reviews.id"), nullable=True)
+
+    # Relationships
+    step = relationship("ApprovalStep", back_populates="logs")
+    user = relationship("User")
+    work_plan = relationship("WorkPlan", back_populates="approval_logs")
+    trip = relationship("Trip", back_populates="approval_logs")
+    timesheet = relationship("Timesheet", back_populates="approval_logs")
+    leave_request = relationship("LeaveRequest", back_populates="approval_logs")
+    personal_development_review = relationship("PersonalDevelopmentReview", back_populates="approval_logs")
+
+    def __repr__(self):
+        return f"<ApprovalLog(step_id={self.step_id}, approved_by_id={self.approved_by_id}, status={self.status})>"
+
 
 class WorkPlan(BaseTable):
     __tablename__ = "work_plans"
     
-    # General WorkPlan Information
     workplan_code = Column(String(20), nullable=True)
     activity_title = Column(String(255), nullable=False)
     specific_task = Column(Text, nullable=False)
@@ -475,8 +561,6 @@ class WorkPlan(BaseTable):
     status = Column(String(20), nullable=True)
     activity_start_time = Column(Time, nullable=True)
     activity_date = Column(Date, nullable=False)
-    
-    # Workflow-related columns
     date_reviewed = Column(DateTime, nullable=True)
     date_approved = Column(DateTime, nullable=True)
     date_rescheduled = Column(DateTime, nullable=True)
@@ -488,55 +572,59 @@ class WorkPlan(BaseTable):
     is_report_submitted = Column(Boolean, nullable=True)
     need_vehicle = Column(Boolean, nullable=True)
     vehicle_assigned = Column(Boolean, nullable=True)
-    
-    # Foreign keys for workflow steps
+
+    # Approval workflow fields
     approval_flow_id = Column(Integer, ForeignKey("approval_flows.id"), nullable=True)
-    initiating_user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
-    initiating_unit_id = Column(Integer, ForeignKey("units.id"), nullable=True)
-    reviewed_by_id = Column(Integer, ForeignKey("employees.id"), nullable=True)
-    approved_by_id = Column(Integer, ForeignKey("employees.id"), nullable=True)
-    
-    # Conditional approvers based on workplan source
-    supervisor_id = Column(Integer, ForeignKey("employees.id"), nullable=True, comment="Approver if workplan_source_id is 1")
-    srt_approver_id = Column(Integer, ForeignKey("employees.id"), nullable=True, comment="Approver if workplan_source_id is 3 and role_id is 4")
-    
-    # Relationships to ApprovalFlow, Users, and Departments
+    current_step_id = Column(Integer, ForeignKey("approval_steps.id"), nullable=True)
+
+    # Relationships for approval workflow
     approval_flow = relationship("ApprovalFlow", back_populates="work_plans")
-    initiating_user = relationship("User", foreign_keys=[initiating_user_id])
-    reviewing_user = relationship("Employee", foreign_keys=[reviewed_by_id])
-    approving_user = relationship("Employee", foreign_keys=[approved_by_id])
-    supervisor = relationship("Employee", foreign_keys=[supervisor_id])
-    srt_approver = relationship("Employee", foreign_keys=[srt_approver_id])
-    
-    # Relationships to additional models
+    current_step = relationship("ApprovalStep")
+    approval_logs = relationship("ApprovalLog", back_populates="work_plan")
+
+    # Existing foreign key relationships
+    initiating_user_id = Column(Integer, ForeignKey("users.id"))
+    initiating_unit_id = Column(Integer, ForeignKey("units.id"), nullable=True)
+    reviewed_by = Column(Integer, ForeignKey("users.id"), nullable=True)
+    approved_by = Column(Integer, ForeignKey("users.id"), nullable=True)
     initiating_srt_id = Column(Integer, ForeignKey("srts.id"), nullable=True)
     initiating_department_id = Column(Integer, ForeignKey("departments.id"), nullable=True)
     initiating_thematic_area_id = Column(Integer, ForeignKey("thematic_areas.id"), nullable=True)
     workplan_source_id = Column(Integer, ForeignKey("workplan_sources.id"))
-    project_id = Column(Integer, ForeignKey("projects.id"), nullable=True)
-    activity_lead_id = Column(Integer, ForeignKey("employees.id"), nullable=True)
-    
-    # Relationship definitions for related tables
-    workplan_source = relationship("WorkPlanSource", back_populates="work_plans")
     tenancy_id = Column(Integer, ForeignKey("tenancy.id"))
+    activity_lead_id = Column(Integer, ForeignKey("employees.id"), nullable=True)
+    project_id = Column(Integer, ForeignKey("projects.id"), nullable=True)
+
+    # Relationship mappings
+    initiating_user = relationship("User", foreign_keys=[initiating_user_id])
+    reviewing_user = relationship("User", foreign_keys=[reviewed_by])
+    approving_user = relationship("User", foreign_keys=[approved_by])
+    initiating_unit = relationship("Unit", foreign_keys=[initiating_unit_id])
+    initiating_srt = relationship("SRT", foreign_keys=[initiating_srt_id])
+    initiating_department = relationship("Department", foreign_keys=[initiating_department_id])
+    thematic_area = relationship("ThematicArea", foreign_keys=[initiating_thematic_area_id])
+    workplan_source = relationship("WorkPlanSource", back_populates="work_plans")
     tenancy = relationship("Tenancy", back_populates="work_plans")
     activity_lead = relationship("Employee", back_populates="led_work_plans")
     project = relationship("Project", back_populates="work_plans")
     
-    # Trip and Report Relationships
     trip_report = relationship("TripReport", back_populates="work_plan", uselist=False)
-    trips = relationship("Trip", back_populates="work_plan", cascade="all, delete-orphan")
-    
-    # Additional Relationships for WorkPlan participants
-    employees = relationship("Employee", secondary=workplan_employee_association, back_populates="work_plans")
     sites = relationship("Site", secondary=workplan_site_association, back_populates="work_plans")
+    employees = relationship("Employee", secondary=workplan_employee_association, back_populates="work_plans")
+    trips = relationship("Trip", secondary=trip_workplan_association, back_populates="work_plans")
     locations = relationship("Location", secondary=workplan_location_association, back_populates="work_plans")
     scopes_of_work = relationship("ScopeOfWork", back_populates="work_plan")
-    
-    # For indexing and efficient lookups
-    __table_args__ = (
-        Index("ix_workplan_code", "workplan_code"),
-    )
+
+    def submit_for_approval(self):
+        if not self.approval_flow:
+            raise ValueError("An approval flow must be set before submitting for approval.")
+        # Logic to initiate the approval process
+        # You can set the current_step to the first step in the approval flow, for example
+        self.current_step = self.approval_flow.steps[0] if self.approval_flow.steps else None
+
+    def __repr__(self):
+        return f"<WorkPlan(workplan_code={self.workplan_code}, status={self.status})>"
+
 
 
 class WorkPlanSource(BaseTable):
@@ -853,11 +941,9 @@ class Driver(BaseTable):
 
 class Trip(BaseTable):
     __tablename__ = "trips"
+    
     vehicle_id = Column(Integer, ForeignKey("vehicles.id"))
     driver_id = Column(Integer, ForeignKey("drivers.id"))
-    # trip_start_location_id = Column(
-    #     Integer, ForeignKey("trip_start_locations.id"), nullable=True
-    # )
     start_time = Column(DateTime, nullable=True)
     actual_start_time = Column(DateTime, nullable=True)
     end_time = Column(DateTime, nullable=True)
@@ -869,26 +955,32 @@ class Trip(BaseTable):
     status = Column(String(50), default="Trip Scheduled")
     issue_id = Column(Integer, ForeignKey("issue_logs.id"), nullable=True)
     tenancy_id = Column(Integer, ForeignKey("tenancy.id"))
-    tenancy = relationship("Tenancy", back_populates="trips")
-    driver = relationship("Driver", back_populates="trip", foreign_keys=[driver_id])
-    work_plans = relationship(
-        "WorkPlan", secondary=trip_workplan_association, back_populates="trips"
-    )
-    employees = relationship(
-        "Employee", secondary=trip_employee_association, back_populates="trips"
-    )
-    trip_report = relationship("TripReport", back_populates="trip", uselist=False)
-    vehicle = relationship("Vehicle", back_populates="trip", foreign_keys=[vehicle_id])
-    issue = relationship("IssueLog", back_populates="trip")
-    trip_stages = relationship(
-        "TripStage", back_populates="trip", cascade="all, delete-orphan"
-    )
-    # trip_start_location = relationship("TripStartLocation", back_populates="trips")
     trip_start_location_id = Column(Integer, ForeignKey("trip_special_locations.id"), nullable=True)
     trip_end_location_id = Column(Integer, ForeignKey("trip_special_locations.id"), nullable=True)
-    
+
+    # Approval workflow fields
+    approval_flow_id = Column(Integer, ForeignKey("approval_flows.id"), nullable=True)
+    current_step_id = Column(Integer, ForeignKey("approval_steps.id"), nullable=True)
+
+    # Relationships for approval workflow
+    approval_flow = relationship("ApprovalFlow", back_populates="trips")
+    current_step = relationship("ApprovalStep")
+    approval_logs = relationship("ApprovalLog", back_populates="trip")
+
+    # Existing relationships
+    tenancy = relationship("Tenancy", back_populates="trips")
+    driver = relationship("Driver", back_populates="trip", foreign_keys=[driver_id])
+    vehicle = relationship("Vehicle", back_populates="trip", foreign_keys=[vehicle_id])
+    issue = relationship("IssueLog", back_populates="trip")
     trip_start_location = relationship("TripSpecialLocation", foreign_keys=[trip_start_location_id], back_populates="start_trips")
     trip_end_location = relationship("TripSpecialLocation", foreign_keys=[trip_end_location_id], back_populates="end_trips")
+    trip_stages = relationship("TripStage", back_populates="trip", cascade="all, delete-orphan")
+    work_plans = relationship("WorkPlan", secondary=trip_workplan_association, back_populates="trips")
+    employees = relationship("Employee", secondary=trip_employee_association, back_populates="trips")
+    trip_report = relationship("TripReport", back_populates="trip", uselist=False)
+
+    def __repr__(self):
+        return f"<Trip(trip_code={self.trip_code}, status={self.status}, vehicle_id={self.vehicle_id}, driver_id={self.driver_id})>"
 
 
 class TripStage(BaseTable):
@@ -997,6 +1089,7 @@ class ActionPoint(BaseTable):
         back_populates="assigned_action_points",
     )
 
+
 # Audit and Log Models
 class AuditLog(BaseTable):
     __tablename__ = "audit_logs"
@@ -1018,7 +1111,9 @@ class PublicHoliday(BaseTable):
     description = Column(Text, nullable=True)
     holiday_type_id = Column(Integer, ForeignKey("holiday_types.id"), nullable=True)
     holiday_type = relationship("HolidayType", back_populates="holidays")
-        
+    
+
+
 # DocumentType Model
 class DocumentType(BaseTable):
     __tablename__ = "document_types"
@@ -1045,6 +1140,7 @@ class JobOpening(BaseTable):
     applicants = relationship("Applicant", back_populates="job_opening")
     department = relationship("Department", back_populates="job_openings")
 
+
 class Applicant(BaseTable):
     __tablename__ = "applicants"
     first_name = Column(String(255), nullable=False)
@@ -1056,8 +1152,58 @@ class Applicant(BaseTable):
     job_opening = relationship("JobOpening", back_populates="applicants")
     interviews = relationship("Interview", back_populates="applicant")
 
+# class Timesheet(BaseTable):
+#     __tablename__ = "timesheets"
+#     employee_id = Column(Integer, ForeignKey("employees.id"), nullable=False)
+#     project_id = Column(Integer, ForeignKey("projects.id"), nullable=False)
+#     date = Column(Date, nullable=False)
+#     hours_worked = Column(DECIMAL(5, 2), nullable=False, default=8.5)
+#     status = Column(String(50), nullable=False, default="Submitted")
+#     created_by_id = Column(Integer, ForeignKey("employees.id"), nullable=True)
+#     reviewed_by_id = Column(Integer, ForeignKey("employees.id"), nullable=True)
+#     approved_by_id = Column(Integer, ForeignKey("employees.id"), nullable=True)
+#     returned_by_id = Column(Integer, ForeignKey("employees.id"), nullable=True)
+#     archived_by_id = Column(Integer, ForeignKey("employees.id"), nullable=True)
+#     date_reviewed = Column(DateTime, nullable=True)
+#     date_approved = Column(DateTime, nullable=True)
+#     date_returned = Column(DateTime, nullable=True)
+#     date_archived = Column(DateTime, nullable=True)
+#     is_public_holiday = Column(Boolean, default=False)
+#     is_leave = Column(Boolean, default=False)
+#     return_reason = Column(Text, nullable=True)
+#     comment = Column(Text, nullable=True)
+
+#     # Relationships
+#     employee = relationship("Employee", back_populates="timesheets", foreign_keys=[employee_id])
+#     project = relationship("Project", back_populates="timesheets")
+#     creator = relationship("Employee", foreign_keys=[created_by_id], back_populates="created_timesheets")
+#     reviewer = relationship("Employee", foreign_keys=[reviewed_by_id], back_populates="reviewed_timesheets")
+#     approver = relationship("Employee", foreign_keys=[approved_by_id], back_populates="approved_timesheets")
+#     returned_by = relationship("Employee", foreign_keys=[returned_by_id], back_populates="returned_timesheets")
+#     archived_by = relationship("Employee", foreign_keys=[archived_by_id], back_populates="archived_timesheets")
+
+#     __table_args__ = (
+#         CheckConstraint(
+#             "hours_worked >= 0 AND hours_worked <= 24", name="check_hours_worked_valid"
+#         ),
+#         Index('ix_timesheet_date', 'date'),
+#     )
+
+#     def __init__(self, **kwargs):
+#         super().__init__(**kwargs)
+#         self._set_default_hours_worked()
+
+#     def _set_default_hours_worked(self):
+#         if not self.is_leave and not self.is_public_holiday:
+#             weekday = self.date.weekday()
+#             if weekday == 4:  # Friday
+#                 self.hours_worked = 6.0
+#             else:
+#                 self.hours_worked = 8.5
+
 class Timesheet(BaseTable):
     __tablename__ = "timesheets"
+    
     employee_id = Column(Integer, ForeignKey("employees.id"), nullable=False)
     project_id = Column(Integer, ForeignKey("projects.id"), nullable=False)
     date = Column(Date, nullable=False)
@@ -1077,7 +1223,16 @@ class Timesheet(BaseTable):
     return_reason = Column(Text, nullable=True)
     comment = Column(Text, nullable=True)
 
-    # Relationships
+    # Approval workflow fields
+    approval_flow_id = Column(Integer, ForeignKey("approval_flows.id"), nullable=True)
+    current_step_id = Column(Integer, ForeignKey("approval_steps.id"), nullable=True)
+
+    # Relationships for approval workflow
+    approval_flow = relationship("ApprovalFlow", back_populates="timesheets")
+    current_step = relationship("ApprovalStep")
+    approval_logs = relationship("ApprovalLog", back_populates="timesheet")
+
+    # Existing relationships
     employee = relationship("Employee", back_populates="timesheets", foreign_keys=[employee_id])
     project = relationship("Project", back_populates="timesheets")
     creator = relationship("Employee", foreign_keys=[created_by_id], back_populates="created_timesheets")
@@ -1105,6 +1260,13 @@ class Timesheet(BaseTable):
             else:
                 self.hours_worked = 8.5
 
+    def submit_for_approval(self):
+        if not self.approval_flow:
+            raise ValueError("An approval flow must be set before submission.")
+        self.current_step = self.approval_flow.steps[0] if self.approval_flow.steps else None
+
+
+
 class EmployeeType(BaseTable):
     __tablename__ = "employee_types"
     
@@ -1120,6 +1282,8 @@ class HolidayType(BaseTable):
     description = Column(Text, nullable=True)
     
     holidays = relationship("PublicHoliday", back_populates="holiday_type")
+
+
 
 class Employee(BaseTable):
     __tablename__ = "employees"
@@ -1174,8 +1338,23 @@ class Employee(BaseTable):
     approved_timesheets = relationship("Timesheet", foreign_keys="[Timesheet.approved_by_id]", back_populates="approver")
     returned_timesheets = relationship("Timesheet", foreign_keys="[Timesheet.returned_by_id]", back_populates="returned_by")
     archived_timesheets = relationship("Timesheet", foreign_keys="[Timesheet.archived_by_id]", back_populates="archived_by")
-    performance_reviews = relationship("PerformanceReview", foreign_keys="[PerformanceReview.employee_id]", back_populates="employee")
-    performance_reviews_given = relationship("PerformanceReview", foreign_keys="[PerformanceReview.reviewer_id]", back_populates="reviewer")
+    # performance_reviews = relationship("PerformanceReview", foreign_keys="[PerformanceReview.employee_id]", back_populates="employee")
+    # performance_reviews_given = relationship("PerformanceReview", foreign_keys="[PerformanceReview.reviewer_id]", back_populates="reviewer")
+    
+    # New Relationships for Personal Development Review
+    personal_development_reviews = relationship(
+        "PersonalDevelopmentReview",
+        foreign_keys="[PersonalDevelopmentReview.employee_id]",
+        back_populates="employee",
+        cascade="all, delete-orphan"
+    )
+
+    # This handles cases where the employee is the reviewer in a review
+    reviews_given = relationship(
+        "PersonalDevelopmentReview",
+        foreign_keys="[PersonalDevelopmentReview.reviewer_id]",
+        back_populates="reviewer"
+    )
     trainings = relationship("Training", secondary=training_employee_association, back_populates="employees")
     bank_details = relationship("BankDetail", back_populates="employee", cascade="all, delete-orphan")
     meeting_minutes = relationship("MeetingMinutes", back_populates="employee")
@@ -1193,7 +1372,7 @@ class Employee(BaseTable):
     is_compliance = Column(Boolean, nullable=True)  # New field for Compliance
     is_finance = Column(Boolean, nullable=True)  # New field for Finance
     is_hr = Column(Boolean, nullable=True)  # New field for HR
-   
+
 
 
 class Interview(BaseTable):
@@ -1218,21 +1397,126 @@ interview_employee_association = Table(
 )
 
 
-class PerformanceReview(BaseTable):
-    __tablename__ = "performance_reviews"
+# class PersonalDevelopmentReview(BaseTable):
+#     __tablename__ = "personal_development_reviews"
+    
+#     id = Column(Integer, primary_key=True, autoincrement=True)
+#     review_period_start = Column(Date, nullable=False)
+#     review_period_end = Column(Date, nullable=False)
+#     comments = Column(Text, nullable=True)
+#     employee_id = Column(Integer, ForeignKey("employees.id"), nullable=False)
+#     reviewer_id = Column(Integer, ForeignKey("employees.id"), nullable=False)  # Ensure this is defined
+    
+#     # Approval workflow fields
+#     approval_flow_id = Column(Integer, ForeignKey("approval_flows.id"), nullable=True)
+#     current_step_id = Column(Integer, ForeignKey("approval_steps.id"), nullable=True)
+    
+#     # Relationships
+#     employee = relationship("Employee", foreign_keys=[employee_id], back_populates="personal_development_reviews")
+#     reviewer = relationship("Employee", foreign_keys=[reviewer_id], back_populates="reviews_given")  # Make sure this is correctly referenced
+#     approval_flow = relationship("ApprovalFlow", back_populates="personal_development_reviews")
+#     current_step = relationship("ApprovalStep")
+#     approval_logs = relationship("ApprovalLog", back_populates="personal_development_review")
+
+#     __table_args__ = (
+#         CheckConstraint(
+#             "review_period_end > review_period_start", name="check_review_period_valid"
+#         ),
+#     )
+
+
+class PersonalDevelopmentReview(BaseTable):
+    __tablename__ = "personal_development_reviews"
+    
+    # Fields specific to PersonalDevelopmentReview
     review_period_start = Column(Date, nullable=False)
     review_period_end = Column(Date, nullable=False)
     comments = Column(Text, nullable=True)
+    
     employee_id = Column(Integer, ForeignKey("employees.id"), nullable=False)
     reviewer_id = Column(Integer, ForeignKey("employees.id"), nullable=False)
-    employee = relationship(
-        "Employee", foreign_keys=[employee_id], back_populates="performance_reviews"
+    
+    # Approval workflow fields
+    approval_flow_id = Column(Integer, ForeignKey("approval_flows.id"), nullable=True)
+    current_step_id = Column(Integer, ForeignKey("approval_steps.id"), nullable=True)
+    
+    # Relationships
+    employee = relationship("Employee", foreign_keys=[employee_id], back_populates="personal_development_reviews")
+    reviewer = relationship("Employee", foreign_keys=[reviewer_id], back_populates="reviews_given")
+    approval_flow = relationship("ApprovalFlow", back_populates="personal_development_reviews")
+    current_step = relationship("ApprovalStep")
+    approval_logs = relationship("ApprovalLog", back_populates="personal_development_review")
+    
+    # Relationship with BroadBasedObjective
+    broad_based_objectives = relationship("BroadBasedObjective", back_populates="review", cascade="all, delete-orphan")
+
+    __table_args__ = (
+        CheckConstraint(
+            "review_period_end > review_period_start", name="check_review_period_valid"
+        ),
     )
-    reviewer = relationship(
-        "Employee",
-        foreign_keys=[reviewer_id],
-        back_populates="performance_reviews_given",
-    )
+
+
+class BroadBasedObjective(BaseTable):
+    __tablename__ = "broad_based_objectives"
+    
+    review_id = Column(Integer, ForeignKey("personal_development_reviews.id"), nullable=False)
+    objective_name = Column(String, nullable=False)
+    description = Column(Text, nullable=True)
+    
+    # Relationship to PersonalDevelopmentReview
+    review = relationship("PersonalDevelopmentReview", back_populates="broad_based_objectives")
+    
+    # Relationship with ResultBasedObjective
+    result_based_objectives = relationship("ResultBasedObjective", back_populates="broad_based_objective", cascade="all, delete-orphan")
+
+
+class ResultBasedObjective(BaseTable):
+    __tablename__ = "result_based_objectives"
+    
+    broad_based_objective_id = Column(Integer, ForeignKey("broad_based_objectives.id"), nullable=False)
+    objective_name = Column(String, nullable=False)
+    description = Column(Text, nullable=True)
+    result = Column(Text, nullable=True)
+    
+    # Relationship to BroadBasedObjective
+    broad_based_objective = relationship("BroadBasedObjective", back_populates="result_based_objectives")
+
+
+# class PersonalDevelopmentReview(BaseTable):
+#     __tablename__ = "personal_development_reviews"
+    
+#     # Fields specific to PersonalDevelopmentReview
+#     review_period_start = Column(Date, nullable=False)
+#     review_period_end = Column(Date, nullable=False)
+#     comments = Column(Text, nullable=True)
+    
+#     # Fields for review content
+#     goals = Column(Text, nullable=True)  # Assuming a single text field for multiple goals
+#     strengths = Column(Text, nullable=True)
+#     areas_for_improvement = Column(Text, nullable=True)
+#     next_steps = Column(Text, nullable=True)
+    
+#     # Foreign keys and relationships
+#     employee_id = Column(Integer, ForeignKey("employees.id"), nullable=False)
+#     reviewer_id = Column(Integer, ForeignKey("employees.id"), nullable=False)  # Assuming this is properly defined
+    
+#     # Approval workflow fields
+#     approval_flow_id = Column(Integer, ForeignKey("approval_flows.id"), nullable=True)
+#     current_step_id = Column(Integer, ForeignKey("approval_steps.id"), nullable=True)
+    
+#     # Relationships
+#     employee = relationship("Employee", foreign_keys=[employee_id], back_populates="personal_development_reviews")
+#     reviewer = relationship("Employee", foreign_keys=[reviewer_id], back_populates="reviews_given")
+#     approval_flow = relationship("ApprovalFlow", back_populates="personal_development_reviews")
+#     current_step = relationship("ApprovalStep")
+#     approval_logs = relationship("ApprovalLog", back_populates="personal_development_review")
+
+#     __table_args__ = (
+#         CheckConstraint(
+#             "review_period_end > review_period_start", name="check_review_period_valid"
+#         ),
+#     )
 
 
 class Training(BaseTable):
@@ -1246,6 +1530,24 @@ class Training(BaseTable):
     )
 
 
+# class LeaveRequest(BaseTable):
+#     __tablename__ = "leave_requests"
+#     start_date = Column(Date, nullable=False)
+#     end_date = Column(Date, nullable=False)
+#     status = Column(String(50), nullable=False)
+#     reason = Column(Text, nullable=True)
+#     hr_approval = Column(Boolean, default=False)
+#     reliever_supervisor_approval = Column(Boolean, default=False)
+#     finance_approval = Column(Boolean, default=False)
+#     status = Column(String(50), default="Pending HR Approval")
+#     employee_id = Column(Integer, ForeignKey("employees.id"), nullable=False)
+#     employee = relationship("Employee", back_populates="leave_requests")
+#     __table_args__ = (
+#         CheckConstraint(
+#             "end_date > start_date", name="check_end_date_after_start_date"
+#         ),
+#     )
+
 # Define LeaveType Model
 class LeaveType(BaseTable):
     __tablename__ = "leave_types"
@@ -1256,7 +1558,31 @@ class LeaveType(BaseTable):
     # Establish relationship with LeaveRequest
     leave_requests = relationship("LeaveRequest", back_populates="leave_type")
 
-# Update LeaveRequest Model
+# # Update LeaveRequest Model
+# class LeaveRequest(BaseTable):
+#     __tablename__ = "leave_requests"
+
+#     start_date = Column(Date, nullable=False)
+#     end_date = Column(Date, nullable=False)
+#     status = Column(String(50), default="Pending HR Approval", nullable=False)
+#     reason = Column(Text, nullable=True)
+#     hr_approval = Column(Boolean, default=False)
+#     reliever_supervisor_approval = Column(Boolean, default=False)
+#     finance_approval = Column(Boolean, default=False)
+    
+#     # Foreign key to LeaveType
+#     leave_type_id = Column(Integer, ForeignKey("leave_types.id"), nullable=False)
+#     leave_type = relationship("LeaveType", back_populates="leave_requests")
+    
+#     employee_id = Column(Integer, ForeignKey("employees.id"), nullable=False)
+#     employee = relationship("Employee", back_populates="leave_requests")
+
+#     __table_args__ = (
+#         CheckConstraint(
+#             "end_date > start_date", name="check_end_date_after_start_date"
+#         ),
+#     )
+
 class LeaveRequest(BaseTable):
     __tablename__ = "leave_requests"
 
@@ -1275,11 +1601,22 @@ class LeaveRequest(BaseTable):
     employee_id = Column(Integer, ForeignKey("employees.id"), nullable=False)
     employee = relationship("Employee", back_populates="leave_requests")
 
+    # Approval workflow fields
+    approval_flow_id = Column(Integer, ForeignKey("approval_flows.id"), nullable=True)
+    current_step_id = Column(Integer, ForeignKey("approval_steps.id"), nullable=True)
+
+    # Relationships for approval flow
+    approval_flow = relationship("ApprovalFlow", back_populates="leave_requests")
+    current_step = relationship("ApprovalStep")
+    approval_logs = relationship("ApprovalLog", back_populates="leave_request")
+
     __table_args__ = (
         CheckConstraint(
             "end_date > start_date", name="check_end_date_after_start_date"
         ),
     )
+
+
 
 class Attendance(BaseTable):
     __tablename__ = "attendance"

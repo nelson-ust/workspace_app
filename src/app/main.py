@@ -53,6 +53,11 @@ from routes.leave_request_type_routes import  router as leave_request_type_route
 from routes.public_holiday_type_routes import router as public_holiday_type_router
 from routes.employee_type_routes import router as employee_type_router
 from routes.whatsapp_integrator_route import router as whatsapp_router 
+from routes.approval_flow_routes import router as approval_flow_router
+from routes.approval_step_routes import router as approval_step_router
+from routes.personal_development_performance_review_routes import router as pdp_router
+from routes.module_routes import router as module_router
+from routes.route_management_routes import router as route_management_router
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 from fastapi.openapi.utils import get_openapi
@@ -121,8 +126,13 @@ async def read_root():
     }
 
 # Include your routers
+app.include_router(route_management_router, prefix="/api/v1", tags=["Route Management"])
 app.include_router(funder_router,prefix="/api/v1",tags=["Funder"])
 app.include_router(project_router,prefix="/api/v1",tags=["Projects"])
+app.include_router(approval_step_router, prefix="/api/v1", tags=["Approval Steps"])
+app.include_router(approval_flow_router,prefix="/api/v1", tags=["Approval Flow"])
+app.include_router(pdp_router,prefix="/api/v1", tags=["PDP"])
+app.include_router(module_router, prefix="/api/v1", tags=["Module"])
 app.include_router(project_component_router,prefix="/api/v1",tags=["Project Components"])
 app.include_router(funding_router,prefix="/api/v1",tags=["Funding"])
 app.include_router(tenancy_router, prefix="/api/v1", tags=["Tenancy"])

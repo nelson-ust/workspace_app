@@ -1,3 +1,4 @@
+#app/auth/email.py
 import os
 import smtplib
 from email.mime.text import MIMEText
@@ -826,3 +827,131 @@ async def notify_holiday_creation(recipients: List[Tuple[str, str]], holiday_nam
     
     logging_helper.log_info("Holiday announcement email sent to all employees with the CEO in copy.")
 
+
+
+#email notification to the next person in the person in the Approval flow
+def notify_next_approval_step(email_to: str, employee_name: str, flow_name: str, request_link: str):
+    """
+    Notify the next approver about a pending approval step.
+    
+    Args:
+        email_to (str): The email address of the next approver.
+        employee_name (str): The name of the employee involved in the request.
+        flow_name (str): The name of the approval flow.
+        request_link (str): The URL link to the approval request.
+    """
+    subject = "Approval Required for Next Step"
+    html_content = f"""
+    <html>
+        <body>
+            <p>Dear {employee_name},</p>
+            <p>You have a pending approval step in the '{flow_name}' approval flow. Please review the request and take the necessary action.</p>
+            <p><a href="{request_link}">Click here to view and approve the request</a></p>
+            <p>Regards,<br>Your Approval Management Team</p>
+        </body>
+    </html>
+    """
+    send_email(email_to=email_to, subject=subject, html_content=html_content)
+
+# def notify_request_initiator(email_to: str, initiator_name: str, flow_name: str, step_description: str, request_link: str):
+#     """
+#     Notify the request initiator about the current step in the approval flow.
+
+#     Args:
+#         email_to (str): The email address of the initiator.
+#         initiator_name (str): The name of the initiator.
+#         flow_name (str): The name of the approval flow.
+#         step_description (str): Description of the current approval step.
+#         request_link (str): The URL link to view the approval request.
+#     """
+#     subject = "Your Request is Moving Through the Approval Process"
+#     html_content = f"""
+#     <html>
+#         <body>
+#             <p>Dear {initiator_name},</p>
+#             <p>Your request in the '{flow_name}' approval flow has advanced to the following step:</p>
+#             <p><strong>Current Step:</strong> {step_description}</p>
+#             <p>You can follow the progress by <a href="{request_link}">clicking here to view your request</a>.</p>
+#             <p>Regards,<br>Your Approval Management Team</p>
+#         </body>
+#     </html>
+#     """
+#     send_email(email_to=email_to, subject=subject, html_content=html_content)
+
+
+# def notify_request_initiator_of_rejection(email_to: str, employee_name: str, approver_name: str, rejection_comment: str, request_link: str):
+#     """
+#     Send an email to the initiator notifying them of the rejection with a comment.
+
+#     Args:
+#         email_to (str): Email of the initiator.
+#         employee_name (str): Name of the employee whose review was rejected.
+#         approver_name (str): Name of the approver who rejected the review.
+#         rejection_comment (str): The comment explaining the rejection.
+#         request_link (str): The link to view the performance review.
+#     """
+#     subject = f"Performance Review Rejected by {approver_name}"
+#     html_content = f"""
+#     <html>
+#         <body>
+#             <p>Hi {employee_name},</p>
+#             <p>Your performance review has been rejected by {approver_name} with the following comment:</p>
+#             <blockquote>{rejection_comment}</blockquote>
+#             <p>You can view the review by following this <a href="{request_link}">link</a>.</p>
+#             <p>Regards,<br>Your Performance Review System</p>
+#         </body>
+#     </html>
+    # """
+    # send_email(email_to, subject, html_content)
+
+
+
+def notify_request_initiator_of_approval(email_to: str, initiator_name: str, approver_name: str, request_type: str, request_link: str):
+    """
+    Send an email to the initiator notifying them of the approval.
+
+    Args:
+        email_to (str): Email of the initiator.
+        initiator_name (str): Name of the initiator.
+        approver_name (str): Name of the approver who approved the request.
+        request_type (str): Type of the request (e.g., "Performance Review", "Leave Request").
+        request_link (str): The link to view the request.
+    """
+    subject = f"{request_type} Approved by {approver_name}"
+    html_content = f"""
+    <html>
+        <body>
+            <p>Hi {initiator_name},</p>
+            <p>Your {request_type} has been approved by {approver_name}. You can view the details by following this <a href="{request_link}">link</a>.</p>
+            <p>Regards,<br>Your System Team</p>
+        </body>
+    </html>
+    """
+    send_email(email_to, subject, html_content)
+
+
+def notify_request_initiator_of_rejection(email_to: str, initiator_name: str, approver_name: str, request_type: str, rejection_reason: str, request_link: str):
+    """
+    Send an email to the initiator notifying them of the rejection and providing the reason.
+
+    Args:
+        email_to (str): Email of the initiator.
+        initiator_name (str): Name of the initiator.
+        approver_name (str): Name of the approver who rejected the request.
+        request_type (str): Type of the request (e.g., "Performance Review", "Leave Request").
+        rejection_reason (str): Reason for the rejection.
+        request_link (str): The link to view the request.
+    """
+    subject = f"{request_type} Rejected by {approver_name}"
+    html_content = f"""
+    <html>
+        <body>
+            <p>Hi {initiator_name},</p>
+            <p>Your {request_type} has been rejected by {approver_name} for the following reason:</p>
+            <blockquote>{rejection_reason}</blockquote>
+            <p>You can view the details by following this <a href="{request_link}">link</a>.</p>
+            <p>Regards,<br>Your System Team</p>
+        </body>
+    </html>
+    """
+    send_email(email_to, subject, html_content)
