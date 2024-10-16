@@ -11,7 +11,7 @@ from repositories.actionPointSource_repository import ActionPointSourceRepositor
 from logging_helpers import logging_helper
 from auth.security import get_current_user
 from models.all_models import ActionEnum, User
-from auth.dependencies import role_checker
+from auth.dependencies import role_checker, role_required
 
 limiter = Limiter(key_func=get_remote_address)
 router = APIRouter()
@@ -22,7 +22,10 @@ async def create_actionpointsource(
     request: Request, 
     actionpointsource_data: ActionPointSourceCreate, 
     current_user: User = Depends(get_current_user), 
-    db: Session = Depends(get_db), _=Depends(role_checker(["super_admin"]))):
+    db: Session = Depends(get_db), 
+    # _=Depends(role_checker(["super_admin"]))
+    _ = Depends(role_required())
+    ):
     """
     Create a new ActionPointSource.
     
@@ -54,7 +57,10 @@ async def create_actionpointsource(
 async def read_all_actionpointsource(
     request: Request, 
     current_user: User = Depends(get_current_user), 
-    db: Session = Depends(get_db), _=Depends(role_checker(['unit_member','programs_lead','technical_lead', 'stl', 'hq_backstop', 'tenant_admin','super_admin']))):
+    db: Session = Depends(get_db), 
+    # _=Depends(role_checker(['unit_member','programs_lead','technical_lead', 'stl', 'hq_backstop', 'tenant_admin','super_admin']))
+    _ = Depends(role_required())
+    ):
     """
     Retrieve all ActionPointSources.
     
@@ -87,7 +93,10 @@ async def read_actionpointsource(
     request: Request, 
     actionpointsource_id: int, 
     current_user: User = Depends(get_current_user), 
-    db: Session = Depends(get_db), _=Depends(role_checker(['unit_member','programs_lead','technical_lead', 'stl', 'hq_backstop', 'tenant_admin','super_admin']))):
+    db: Session = Depends(get_db), 
+    # _=Depends(role_checker(['unit_member','programs_lead','technical_lead', 'stl', 'hq_backstop', 'tenant_admin','super_admin']))
+    _ = Depends(role_required())
+    ):
     """
     Retrieve an ActionPointSource by its ID.
     
@@ -124,7 +133,10 @@ async def update_actionpointsource(
     actionpointsource_id: int, 
     actionpointsource_data: ActionPointSourceUpdate, 
     current_user: User = Depends(get_current_user), 
-    db: Session = Depends(get_db), _=Depends(role_checker(["super_admin"]))):
+    db: Session = Depends(get_db), 
+    # _=Depends(role_checker(["super_admin"]))
+    _ = Depends(role_required())
+    ):
     """
     Update an existing ActionPointSource.
     
@@ -161,7 +173,10 @@ async def soft_delete_actionpointsource(
     request: Request, 
     actionpointsource_id: int, 
     current_user: User = Depends(get_current_user), 
-    db: Session = Depends(get_db), _=Depends(role_checker(["super_admin"]))):
+    db: Session = Depends(get_db), 
+    # _=Depends(role_checker(["super_admin"]))
+    _ = Depends(role_required())
+    ):
     """
     Soft delete an ActionPointSource by setting its is_active flag to False.
     
@@ -196,7 +211,10 @@ async def restore_actionpointsource(
     request: Request, 
     actionpointsource_id: int, 
     current_user: User = Depends(get_current_user), 
-    db: Session = Depends(get_db), _=Depends(role_checker(["super_admin"]))):
+    db: Session = Depends(get_db), 
+    # _=Depends(role_checker(["super_admin"]))
+    _ = Depends(role_required())
+    ):
     """
     Restore a soft-deleted ActionPointSource by setting its is_active flag to True.
     

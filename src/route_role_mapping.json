@@ -1,0 +1,128 @@
+  [
+     {
+        "path": "/api/v1/modules",
+        "method": "POST",
+        "description": "Create a new module. Accessible by super_admin and admin roles.",
+        "permitted_roles": ["super_admin"],
+         "module_id": 1
+
+     }, 
+     {
+        "path": "/api/v1/modules",
+        "method": "POST",
+        "description": "Create a new module. Accessible by super_admin and admin roles.",
+        "permitted_roles": ["super_admin", "tenant_admin"],
+        "module_id": 1
+      },
+      {
+        "path": "/api/v1/modules/{module_id}",
+        "method": "GET",
+        "description": "Retrieve a specific module by ID. Accessible by super_admin, unit_member, and hr roles.",
+        "permitted_roles": ["super_admin", "tenant_admin", "unit_member"],
+        "module_id": 1
+      },
+      {
+        "path": "/api/v1/modules",
+        "method": "GET",
+        "description": "List all modules. Accessible by super_admin, unit_member, and hr roles.",
+        "permitted_roles": ["super_admin", "unit_member", "hr"],
+        "module_id": 1
+      },
+      {
+        "path": "/api/v1/modules/{module_id}",
+        "method": "PUT",
+        "description": "Update an existing module. Accessible by super_admin and tenant_admin roles.",
+        "permitted_roles": ["super_admin", "tenant_admin"],
+        "module_id": 1
+      },
+      {
+        "path": "/api/v1/modules/{module_id}",
+        "method": "DELETE",
+        "description": "Delete a module. Only accessible by super_admin role.",
+        "permitted_roles": ["super_admin"],
+        "module_id": 1
+      },
+      {
+          "path": "/api/v1/actionpointsource/",
+          "method": "POST",
+          "description": "Create a new ActionPointSource. Accessible by super_admin role.",
+          "permitted_roles": ["super_admin"],
+          "module_id": 1
+        },
+        {
+          "path": "/api/v1/actionpointsource/",
+          "method": "GET",
+          "description": "Retrieve all ActionPointSources. Accessible by various roles.",
+          "permitted_roles": ["unit_member", "programs_lead", "technical_lead", "stl", "hq_backstop", "tenant_admin", "super_admin"],
+          "module_id": 1
+        },
+        {
+          "path": "/api/v1/actionpointsource/{actionpointsource_id}",
+          "method": "GET",
+          "description": "Retrieve an ActionPointSource by ID. Accessible by various roles.",
+          "permitted_roles": ["unit_member", "programs_lead", "technical_lead", "stl", "hq_backstop", "tenant_admin", "super_admin"],
+          "module_id": 1
+        },
+        {
+          "path": "/api/v1/actionpointsource/{actionpointsource_id}",
+          "method": "PUT",
+          "description": "Update an existing ActionPointSource. Accessible by super_admin role.",
+          "permitted_roles": ["super_admin"],
+          "module_id": 1
+        },
+        {
+          "path": "/api/v1/actionpointsource/{actionpointsource_id}/soft_delete",
+          "method": "POST",
+          "description": "Soft delete an ActionPointSource. Accessible by super_admin role.",
+          "permitted_roles": ["super_admin"],
+          "module_id": 1
+        },
+        {
+          "path": "/api/v1/actionpointsource/{actionpointsource_id}/restore",
+          "method": "POST",
+          "description": "Restore a soft-deleted ActionPointSource. Accessible by super_admin role.",
+          "permitted_roles": ["super_admin"],
+          "module_id": 1
+        },
+        
+        {
+          "path": "/api/v1/approval-flows",
+          "method": "POST",
+          "description": "Create a new approval flow",
+          "permitted_roles": ["super_admin"],
+          "module_id": 1
+        },
+        {
+          "path": "/api/v1/approval-flows/{flow_id}",
+          "method": "GET",
+          "description": "Retrieve a specific approval flow by ID",
+          "permitted_roles": ["super_admin","unit_member", "supervisor"],
+          "module_id": 1
+        },
+        {
+          "path": "/api/v1/approval-flows",
+          "method": "GET",
+          "description": "List all approval flows",
+          "permitted_roles": ["unit_member", "super_admin"],
+          "module_id": 1
+        },
+        {
+          "path": "/api/v1/approval-flows/{flow_id}",
+          "method": "PUT",
+          "description": "Update an existing approval flow",
+          "permitted_roles": ["super_admin"],
+          "module_id": 1
+        },
+        {
+          "path": "/api/v1/approval-flows/{flow_id}",
+          "method": "DELETE",
+          "description": "Delete an approval flow",
+          "permitted_roles": ["super_admin"],
+          "module_id": 1
+        }
+      
+  ]
+  
+  
+  
+    

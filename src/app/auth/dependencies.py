@@ -68,6 +68,7 @@ from db.database import get_db
 from models.all_models import User, Route, RouteRole
 from auth.security import get_current_user as security_get_current_user
 from schemas.user_schemas import UserRead
+import logging
 
 
 def get_current_user(db: Session = Depends(get_db), token: str = Depends(security_get_current_user)) -> User:
@@ -108,17 +109,67 @@ def get_current_user_with_roles(
         ) from e
 
 
+# def role_required(allowed_roles: Optional[List[str]] = None) -> Callable:
+#     """
+#     Hybrid role-based access control.
+
+#     Args:
+#         allowed_roles (Optional[List[str]]): List of roles permitted to access the endpoint. 
+#                                              If None, retrieves roles from the database.
+
+#     Returns:
+#         Callable: Dependency function for role verification.
+#     """
+#     async def _role_check(
+#         request: Request, 
+#         current_user: User = Depends(get_current_user_with_roles), 
+#         db: Session = Depends(get_db)
+#     ) -> bool:
+#         # Get the requested path and method
+#         request_path = request.scope["path"]
+#         request_method = request.method
+
+#         try:
+#             # If roles are injected directly, use them
+#             if allowed_roles:
+#                 required_roles = set(allowed_roles)
+#             else:
+#                 # Otherwise, retrieve roles dynamically from the database
+#                 route = db.query(Route).filter(
+#                     Route.path == request_path,
+#                     Route.method == request_method
+#                 ).first()
+
+#                 if route is None:
+#                     raise HTTPException(
+#                         status_code=status.HTTP_404_NOT_FOUND,
+#                         detail="Route not found or not configured for access control."
+#                     )
+
+#                 required_roles = {route_role.role.name for route_role in route.route_roles}
+
+#             # Check if the user has any of the required roles
+#             user_roles = {role.name for role in current_user.roles}
+#             if not user_roles.intersection(required_roles):
+#                 raise HTTPException(
+#                     status_code=status.HTTP_403_FORBIDDEN,
+#                     detail="The user doesn't have the required permissions for this route."
+#                 )
+            
+#             return True
+
+#         except SQLAlchemyError as e:
+#             raise HTTPException(
+#                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+#                 detail="Database error occurred while checking route permissions."
+#             ) from e
+
+
+#     return _role_check
+
+
+# Modified role_required function
 def role_required(allowed_roles: Optional[List[str]] = None) -> Callable:
-    """
-    Hybrid role-based access control.
-
-    Args:
-        allowed_roles (Optional[List[str]]): List of roles permitted to access the endpoint. 
-                                             If None, retrieves roles from the database.
-
-    Returns:
-        Callable: Dependency function for role verification.
-    """
     async def _role_check(
         request: Request, 
         current_user: User = Depends(get_current_user_with_roles), 
@@ -128,24 +179,37 @@ def role_required(allowed_roles: Optional[List[str]] = None) -> Callable:
         request_path = request.scope["path"]
         request_method = request.method
 
+        # Log request path and method
+        logging.info(f"Checking access for path: {request_path} and method: {request_method}")
+
         try:
-            # If roles are injected directly, use them
             if allowed_roles:
                 required_roles = set(allowed_roles)
             else:
-                # Otherwise, retrieve roles dynamically from the database
+                # Retrieve roles dynamically from the database
                 route = db.query(Route).filter(
                     Route.path == request_path,
                     Route.method == request_method
                 ).first()
 
-                if route is None:
+                # Log route retrieval status
+                if route:
+                    logging.info(f"Route found in DB: {route.path} with method: {route.method}")
+                else:
+                    logging.warning(f"No matching route found in DB for path: {request_path} and method: {request_method}")
+                
+                if not route:
                     raise HTTPException(
                         status_code=status.HTTP_404_NOT_FOUND,
                         detail="Route not found or not configured for access control."
                     )
 
                 required_roles = {route_role.role.name for route_role in route.route_roles}
+                if not required_roles:
+                    raise HTTPException(
+                        status_code=status.HTTP_403_FORBIDDEN,
+                        detail="No roles configured for this route in the database."
+                    )
 
             # Check if the user has any of the required roles
             user_roles = {role.name for role in current_user.roles}
